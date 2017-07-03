@@ -1,3 +1,5 @@
-# E. HOPE #
+# EHO #
 
-E. HOPE had the smallest starting lexicon of the depreciated sevensi languages, and so developed at the slowest rate.
+EHO had the smallest starting lexicon of the depreciated Sevensi languages, and so developed at the slowest rate.
+
+![Image of Eho lexis](E. Hope.png)
