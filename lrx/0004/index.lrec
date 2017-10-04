@@ -1,0 +1,209 @@
+Title : LREX version 4
+Author : The LANGDEV Project
+Date : 2017-07-09
+Language : en
+Description : The fourth version of the Lrex language.
+Frontmatter : frontmatter.html
+Splash : Kingly!
+Splash : Emotional!
+Splash : Great!
+Splash : Small!
+Splash : Woah!
+Splash : Good!
+Splash : Bad!
+Splash : Scary!
+Splash : Shoo!
+Splash : Fixed!
+Splash : Out loud!
+%%
+Group : Class
+Tag : adj
+Tag : adv
+Tag : excl
+Tag : pron
+Tag : v
+Tag : affix
+%%
+Lexeme : kohwhǽ
+At : words/kohwhǽ.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : kō+whǽ
+Gloss : stop/wait
+Tagged : v
+%%
+Lexeme : tawhǽ
+At : words/tawhǽ.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : tä+whǽ
+Gloss : go
+Tagged : v
+%%
+Lexeme : ohwy
+At : words/ohwy.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : ōh+wī
+Gloss : a surprised exclamation
+Tagged : excl
+%%
+Lexeme : wahwei
+At : words/wahwei.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : wä+wā
+Gloss : surprising
+Tagged : adj
+%%
+Lexeme : rie
+At : words/rie.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : rē
+Gloss : leave
+Tagged : v
+%%
+Lexeme : kotai
+At : words/kotai.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : kō+tī
+Gloss : quit
+Tagged : v
+%%
+Lexeme : rawhǽ
+At : words/rawhǽ.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : rä+whǽ
+Gloss : shoo
+Tagged : excl
+Tagged : v
+%%
+Lexeme : hae
+At : words/hae.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : hā
+Gloss : good
+Tagged : adj
+%%
+Lexeme : ahǽ
+At : words/ahǽ.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : ah+ǽ
+Gloss : pleasant
+Tagged : adj
+%%
+Lexeme : eehae
+At : words/eehae.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : ē+hā
+Gloss : great
+Tagged : adj
+%%
+Lexeme : eehoi
+At : words/eehoi.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : ē+hớ
+Gloss : peaceful
+Tagged : adj
+%%
+Lexeme : hohwǽ'ihy
+At : words/hohwǽ'ihy.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : hō+wǽ·ī
+Gloss : calm
+Tagged : adj
+%%
+Lexeme : hoita
+At : words/hoita.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : hōē+tə
+Gloss : relaxing
+Tagged : adj
+%%
+Lexeme : awei
+At : words/awei.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : ä+wā
+Gloss : something (this/that)
+Tagged : pron
+%%
+Lexeme : uhwei
+At : words/uhwei.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : ə+wā
+Gloss : he/she/they
+Tagged : pron
+%%
+Lexeme : ahn
+At : words/ahn.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : än
+Gloss : bad
+Tagged : adj
+%%
+Lexeme : koe
+At : words/koe.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : kō
+Gloss : no
+Tagged : excl
+%%
+Lexeme : taw
+At : words/taw.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : täw
+Gloss : yes
+Tagged : excl
+%%
+Lexeme : iy
+At : words/iy.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : ī
+Gloss : scary
+Tagged : adj
+%%
+Lexeme : ee
+At : words/ee.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : ē
+Gloss : very
+Tagged : adj
+%%
+Lexeme : een
+At : words/een.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : ēn
+Gloss : very bad / horrible
+Tagged : adj
+%%
+Lexeme : eeyih
+At : words/eeyih.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : ē+yīh
+Gloss : very frightening
+Tagged : adj
+%%
+Lexeme : a-
+At : words/a-.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : ä
+Gloss : somewhat/one
+Tagged : affix
+%%
+Lexeme : aht
+At : words/aht.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : ät
+Gloss : moderately
+Tagged : adv
+%%
+Lexeme : wah
+At : words/wah.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : wä
+Gloss : different/strange
+Tagged : adj
+%%
+Lexeme : whǽ
+At : words/whǽ.html
+Language : art-Latn-x-lrx-0004
+Pronunciation : whǽ
+Gloss : go
+Tagged : v
+%EOF

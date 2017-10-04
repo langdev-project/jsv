@@ -1,0 +1,82 @@
+Title : LREX version 2
+Author : The LANGDEV Project
+Date : 2017-07-09
+Language : en
+Description : The second version of the Lrex language.
+Frontmatter : frontmatter.html
+Splash : Kingly!
+Splash : Emotional!
+Splash : Great!
+Splash : Small!
+Splash : Woah!
+Splash : Good!
+Splash : Bad!
+Splash : Scary!
+Splash : Shoo!
+%%
+Group : Class
+Tag : adj
+Tag : excl
+Tag : pron
+Tag : v
+%%
+Lexeme : ohwei
+At : words/ohwei.html
+Language : art-Latn-x-lrx-0002
+Gloss : surprising
+Tagged : adj
+%%
+Lexeme : raoi
+At : words/raoi.html
+Language : art-Latn-x-lrx-0002
+Gloss : leave
+Tagged : v
+%%
+Lexeme : sa
+At : words/sa.html
+Language : art-Latn-x-lrx-0002
+Gloss : stop/shoo
+Tagged : v
+%%
+Lexeme : ae
+At : words/ae.html
+Language : art-Latn-x-lrx-0002
+Gloss : good/pleasant
+Tagged : adj
+%%
+Lexeme : ee
+At : words/ee.html
+Language : art-Latn-x-lrx-0002
+Gloss : great
+Tagged : adj
+%%
+Lexeme : uh
+At : words/uh.html
+Language : art-Latn-x-lrx-0002
+Gloss : relaxing
+Tagged : adj
+%%
+Lexeme : tuh
+At : words/tuh.html
+Language : art-Latn-x-lrx-0002
+Gloss : this/that/you/me/etc.
+Tagged : pron
+%%
+Lexeme : aah
+At : words/aah.html
+Language : art-Latn-x-lrx-0002
+Gloss : bad
+Tagged : adj
+%%
+Lexeme : iy
+At : words/iy.html
+Language : art-Latn-x-lrx-0002
+Gloss : scary
+Tagged : adj
+%%
+Lexeme : ta
+At : words/ta.html
+Language : art-Latn-x-lrx-0002
+Gloss : do
+Tagged : adj
+%EOF

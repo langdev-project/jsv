@@ -1,0 +1,54 @@
+Title : □2
+Author : The LANGDEV Project
+Date : 2017-07-09
+Language : en
+Description : The second version of the Eho language.
+Frontmatter : frontmatter.html
+Splash : Small!
+Splash : Minimal!
+Splash : We're just getting started!
+Splash : I hope!
+Splash : A little start!
+Splash : A little more!
+Splash : Verbal!
+Splash : Etymologized!
+Splash : Paper!
+%%
+Group : Class
+Tag : v
+%%
+Lexeme : ba
+At : words/ba.html
+Language : art-Latn-x-eho-0002
+Pronunciation : bä
+Gloss : do
+Tagged : v
+%%
+Lexeme : o
+At : words/o.html
+Language : art-Latn-x-eho-0002
+Pronunciation : ō
+Gloss : go
+Tagged : v
+%%
+Lexeme : uw
+At : words/uw.html
+Language : art-Latn-x-eho-0002
+Pronunciation : ū
+Gloss : come
+Tagged : v
+%%
+Lexeme : ah
+At : words/ah.html
+Language : art-Latn-x-eho-0002
+Pronunciation : äh
+Gloss : wait
+Tagged : v
+%%
+Lexeme : aat
+At : words/aat.html
+Language : art-Latn-x-eho-0002
+Pronunciation : ät
+Gloss : stay/stop
+Tagged : v
+%EOF

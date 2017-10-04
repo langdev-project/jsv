@@ -1,0 +1,24 @@
+Title : LREX version 5
+Author : The LANGDEV Project
+Date : 2017-07-09
+Language : en
+Description : The fifth version of the Lrex language.
+Frontmatter : frontmatter.html
+Splash : Kingly!
+Splash : Emotional!
+Splash : Great!
+Splash : Small!
+Splash : Woah!
+Splash : Good!
+Splash : Bad!
+Splash : Scary!
+Splash : Shoo!
+Splash : Fixed!
+Splash : Out loud!
+%%
+Group : Class
+Tag : adj
+Tag : excl
+Tag : pron
+Tag : v
+%EOF

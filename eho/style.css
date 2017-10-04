@@ -1,0 +1,87 @@
+html {
+  margin: 0;
+  padding: 0;
+  font-size: large;
+}
+
+body {
+  margin: auto;
+  padding: 1rem 2rem;
+  max-width: 31rem;
+  text-align: center;
+}
+
+h1 {
+  margin: auto;
+  border-bottom: thin currentColor solid;
+  width: 6em;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+dd {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+dl, p {
+  margin: 1em 0;
+  padding: 0;
+}
+
+h1, dl {
+  font-family: cursive;
+}
+
+dt, dfn {
+  display: inline;
+  font-weight: bold;
+  font-style: italic;
+}
+
+small {
+  font-size: inherit;
+}
+
+small::before {
+  content: "(";
+}
+
+small::after {
+  content: ")";
+}
+
+span.etymology::before {
+  content: "〈";
+}
+
+span.etymology::after {
+  content: "〉";
+}
+
+i {
+  font-style: italic;
+}
+
+footer {
+  font-size: medium;
+}
+
+u {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a[href] {
+  color: slategrey;
+  text-decoration: none;
+}
+
+a[href]:hover {
+  color: darkslategrey;
+}
+
+h1 a[href], h1 a[href]:hover {
+  color: inherit;
+}

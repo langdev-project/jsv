@@ -1,0 +1,30 @@
+Title : □1
+Author : The LANGDEV Project
+Date : 2017-07-09
+Language : en
+Description : The first version of the Eho language.
+Frontmatter : frontmatter.html
+Splash : Small!
+Splash : Minimal!
+Splash : We're just getting started!
+Splash : I hope!
+Splash : Verbal!
+Splash : Paper!
+%%
+Group : Class
+Tag : v
+%%
+Lexeme : o
+At : words/o.html
+Language : art-Latn-x-eho-0001
+Pronunciation : ō
+Gloss : come/go
+Tagged : v
+%%
+Lexeme : aht
+At : words/aht.html
+Language : art-Latn-x-eho-0001
+Pronunciation : äht
+Gloss : stay/stop/wait
+Tagged : v
+%EOF

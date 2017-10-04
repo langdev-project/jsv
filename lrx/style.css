@@ -1,0 +1,79 @@
+html {
+  margin: 0;
+  padding: 0;
+  font-size: large;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  margin: auto;
+  padding: 1rem 2rem;
+  max-width: 31rem;
+  text-align: left;
+}
+
+dd {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+dd::before {
+  content: "–";
+}
+
+dl, p {
+  margin: 0;
+  padding: 0;
+}
+
+dt {
+  display: inline;
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+dfn {
+  font-weight: bold;
+  font-style: inherit;
+}
+
+small {
+  display: inline-block;
+  float: right;
+  width: 50%;
+  font-size: inherit;
+}
+
+i {
+  font-style: italic;
+}
+
+footer {
+  font-size: medium;
+}
+
+u {
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a[href] {
+  color: slategrey;
+  text-decoration: none;
+}
+
+a[href]:hover {
+  color: darkslategrey;
+}
+
+footer a[href], footer a[href]:hover {
+  color: inherit;
+}
+
+hr {
+  margin: 1em 0;
+  padding: 0;
+  border: none;
+  border-bottom: 1px currentColor solid;
+}
