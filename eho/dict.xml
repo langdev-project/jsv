@@ -15,12 +15,12 @@
 				<principal>Gô SHOEMAKE</principal>
 			</titleStmt>
 			<editionStmt>
-				<edition>Version 2, Draft 01</edition>
+				<edition>Version 2, Draft 02</edition>
 			</editionStmt>
 			<publicationStmt>
 				<publisher>The LANGDEV Project</publisher>
 				<date>2017</date>
-				<idno type="URI">tag:langdev.xyz,2017:jsv:eho:dict:2:01</idno>
+				<idno type="URI">tag:langdev.xyz,2017:jsv:eho:dict:2:02</idno>
 				<availability status="free">
 					<licence target="https://creativecommons.org/publicdomain/zero/1.0/">Released into the public domain under a <title>CC0 1.0 Universal License</title>.</licence>
 				</availability>
@@ -292,8 +292,12 @@
 							table.dictionary thead {
 								text-decoration: underline;
 							}
+							td, th {
+								vertical-align: middle;
+							}
 							th {
 								font-weight: bold;
+								text-align: center;
 							}
 							u {
 								text-decoration: none;
@@ -418,7 +422,7 @@
 						<html:hr />
 						<html:p><apply-templates select="tei:titlePage/tei:docEdition" /></html:p>
 						<html:p><apply-templates select="tei:titlePage/tei:byline" /></html:p>
-						<html:p><apply-templates select="tei:titlePage/tei:docDate" /></html:p>
+						<apply-templates select="tei:titlePage/tei:docDate" />
 						<html:hr />
 						<apply-templates select="tei:div" />
 					</html:header>
@@ -480,13 +484,16 @@
 					</html:table>
 				</template>
 				<template match="tei:docDate">
-					<html:time>
+					<html:p>
 						<call-template name="apply-attrs" />
-						<if test="@when">
-							<attribute name="datetime"><value-of select="@when" /></attribute>
-						</if>
-						<apply-templates />
-					</html:time>
+						Last updated:
+						<html:time>
+							<if test="@when">
+								<attribute name="datetime"><value-of select="@when" /></attribute>
+							</if>
+							<apply-templates />
+						</html:time>
+					</html:p>
 				</template>
 				<template match="tei:docTitle">
 					<html:header class="docTitle">
@@ -662,6 +669,10 @@
 
 		<revisionDesc>
 			<change when="2017-10-07">
+				Fixed centering of table header elements.
+				<note type="version">2.02</note>
+			</change>
+			<change when="2017-10-07">
 				Rewrote <choice><abbr>LREC</abbr><expan><choice><abbr>LexisML</abbr><expan>Lexis Markup Language</expan></choice> index RECord</expan></choice>+<choice><abbr>HTML</abbr><expan>HyperText Markup Language</expan></choice> dictionary files into a single <choice><abbr>TEI</abbr><expan>Text Encoding Initiative</expan></choice> document.
 				Corrections were made where errors were found and documentation was improved.
 				<note type="version">2.01</note>
@@ -694,8 +705,8 @@
 				<byline>
 					<docAuthor>The LANGDEV Project</docAuthor>
 				</byline>
-				<docEdition>Version 2, Draft 01</docEdition>
-				<docDate when="2017-10-07">Last updated: 07 October 2017</docDate>
+				<docEdition>Version 2, Draft 02</docEdition>
+				<docDate when="2017-10-07">07 October 2017</docDate>
 				<epigraph>
 					<p>
 						<seg type="splash" subtype="default">Default text!</seg>
