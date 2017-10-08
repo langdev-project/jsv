@@ -1,0 +1,2139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="#xsl-html" ?>
+<!DOCTYPE TEI [<!ATTLIST stylesheet id ID #REQUIRED>]>
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+
+	<!--  TEI HEADER  -->
+	<teiHeader>
+
+		<!--  FILE DESCRIPTION  -->
+		<fileDesc>
+			<titleStmt>
+				<title><seg xml:id="title-main">Lrex</seg>: <seg xml:id="title-sub">Documentation and Dictionary</seg></title>
+				<author xml:id="author-name"><orgName xml:id="langdev-project">The LANGDEV Project</orgName></author>
+				<principal><persName xml:id="go-sh"><forename>Gô</forename> <surname>SHOEMAKE</surname></persName></principal>
+			</titleStmt>
+			<editionStmt>
+				<edition xml:id="version-no">Version 2, Draft 01</edition>
+			</editionStmt>
+			<publicationStmt>
+				<publisher><orgName copyOf="#langdev-project" /></publisher>
+				<date>2017</date>
+				<idno type="URI">tag:langdev.xyz,2017:jsv:lrx:dict:2:01</idno>
+				<availability status="free">
+					<licence target="https://creativecommons.org/publicdomain/zero/1.0/">Released into the public domain under a <title>CC0 1.0 Universal License</title>.</licence>
+				</availability>
+			</publicationStmt>
+			<seriesStmt>
+				<title xml:id="project-dict">The LANGDEV Project Dictionaries</title>
+			</seriesStmt>
+			<sourceDesc>
+				<p>
+					Born digital.
+					Words and definitions taken from the revised digital lexis at <ptr target="./sources/15.Lang.Ev.Lrex.Revised.rtf" mimeType="image/png" />.
+					Pronunciation information taken from the <bibl><ref target="./sources/Hope%20Pronunciation%20Guide.rtf"><title>Hope Pronunciation Guide</title></ref></bibl>.
+					Commentary added.
+				</p>
+			</sourceDesc>
+		</fileDesc>
+
+		<!--  ENCODING DESCRIPTION  -->
+
+		<encodingDesc>
+			<projectDesc>
+				<p>Comprehensive linguistic reference for the various <orgName>LANGDEV</orgName> languages.</p>
+			</projectDesc>
+			<tagsDecl partial="true">
+				<namespace name="http://www.tei-c.org/ns/1.0">
+					<tagUsage gi="div" occurs="7">Used to separate the different versions of the <lang>Eho</lang> language, and also to contain preface material.</tagUsage>
+					<tagUsage gi="entry" occurs="108">Used to mark dictionary entries.</tagUsage>
+					<tagUsage gi="form">The <val>class</val> <att>type</att> marks a <lang>Lrex version 6</lang> word class.</tagUsage>
+					<tagUsage gi="ident">The <val>BCP47</val> <att>type</att> marks an <name type="org"><choice><abbr>IETF</abbr><expan>Internet Engineering Task Force</expan></choice></name> language tag, as defined by <ref target="https://tools.ietf.org/rfc/bcp/bcp47.txt" mediaType="text/plain"><title level="m"><choice><abbr>BCP</abbr><expan>Best Current Practices</expan></choice> 47</title></ref>.</tagUsage>
+					<tagUsage gi="index">Marks keywords for entry indexing and searching.</tagUsage>
+					<tagUsage gi="name">The <val>org</val> <att>type</att> is used to mark an organization.</tagUsage>
+					<tagUsage gi="note">The <val>version</val> <att>type</att> is used to denote versions in the list of changes.</tagUsage>
+					<tagUsage gi="rs">The <val>unicode</val> <att>type</att> is used to reference a <orgName>Unicode</orgName> character.</tagUsage>
+					<tagUsage gi="seg">
+						The <val>splash</val> <att>type</att> refers to an optional splash quote.
+						A splash with <att>subtype</att> <val>default</val> identifies the default splash; all others are alternates.
+					</tagUsage>
+				</namespace>
+			</tagsDecl>
+		</encodingDesc>
+
+		<!--  XSL STYLESHEETS  -->
+
+		<xenoData>
+			<stylesheet id="xsl-html" version="1.0" xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tei="http://www.tei-c.org/ns/1.0">
+				<output method="xml" />
+				<template match="/tei:TEI">
+					<html:html>
+						<call-template name="apply-attrs" />
+						<apply-templates select="tei:teiHeader" mode="head" />
+						<apply-templates select="tei:text" />
+					</html:html>
+				</template>
+				<template match="tei:teiHeader" mode="head">
+					<html:head>
+						<call-template name="apply-lang" />
+						<html:title><value-of select="tei:fileDesc/tei:titleStmt/tei:title" /></html:title>
+						<html:meta charset="utf-8" />
+						<html:meta name="author">
+							<attribute name="content"><apply-templates select="tei:fileDesc/tei:titleStmt/tei:author" mode="resolve-string" /></attribute>
+						</html:meta>
+						<html:meta name="publisher">
+							<attribute name="content"><apply-templates select="tei:fileDesc/tei:publicationStmt/tei:publisher" mode="resolve-string" /></attribute>
+						</html:meta>
+						<html:link rel="license">
+							<attribute name="href"><apply-templates select="tei:fileDesc/tei:publicationStmt/tei:availability/tei:licence/@target" mode="resolve-string" /></attribute>
+						</html:link>
+						<html:style type="text/css" id="css-base">
+							@namespace "http://www.w3.org/1999/xhtml";
+							#theme-selector {
+								display: block;
+								margin: 0 0 .675em;
+								border: thin currentColor solid;
+								padding: .3375em .5em;
+								font-size: small;
+								text-align: right;
+							}
+							html {
+								margin: 0;
+								padding: 0;
+								font: large/1.35 "Junicode", serif;
+								font-variant-numeric: oldstyle-nums;
+							}
+							body {
+								margin: auto;
+								padding: 2.7em 1.5em;
+								max-width: 31em;
+							}
+							main {
+								display: block;
+								margin: 0;
+								border: thin currentColor solid;
+								padding: 0;
+							}
+							main > header, main > footer {
+								display: block;
+								margin: 0;
+								padding: 1.35em 1em;
+								font-size: x-small;
+								text-align: center;
+							}
+							main > header { border-bottom: thin currentColor solid }
+							main > footer { border-top: thin currentColor solid }
+							main > header > table, main > footer > table {
+								margin: 0;
+								border-collapse: collapse;
+								padding: 0;
+								width: 100%;
+							}
+							main > header > table + table, main > footer > table + table { margin-top: .675em }
+							main > header tr > *, main > footer tr > * { border: thin currentColor solid }
+							main > header tr > *:first-child, main > footer tr > * { width: 10em }
+							main > article {
+								display: block;
+								margin: 0;
+								padding: 1.35em 1.5em;
+							}
+							main > article > header {
+								display: block;
+								margin: 0 0 1.35em;
+								border-bottom: thin currentColor solid;
+								padding: 0 0 1.35em;
+								text-align: center;
+								font-size: medium;
+							}
+							main > article > header p:not(:first-child) { margin: 0 }
+							main > article > header section { text-align: justify }
+							main > article > header section p:not(:first-child) { margin: 1.35em 0 0 }
+							b.pos {
+								font-weight: inherit;
+								font-style: italic;
+							}
+							caption {
+								margin: 0 0 .675em;
+								font-weight: bold;
+								text-decoration: underline;
+							}
+							dd { margin: 0 0 0 1.5em }
+							dl {
+								margin: 1.35em 0;
+								padding: 0 1.5em;
+							}
+							dt {
+								font-weight: bold;
+								text-decoration: underline;
+							}
+							div.epigraph {
+								display: block;
+								position: relative;
+								margin: .675em 0;
+								padding: 0;
+								height: 1.35em;
+							}
+							h1 {
+								margin: 0;
+								padding: 0;
+								font-size: xx-large;
+							}
+							h2 {
+								margin: 0 auto;
+								border-bottom: thin currentColor solid;
+								padding: 0;
+								width: 6em;
+								font-size: inherit;
+								font-weight: inherit;
+								letter-spacing: .15em;
+							}
+							header {
+								display: block;
+								margin: 0;
+								padding: 0;
+							}
+							hr {
+								margin: .675em;
+								border: none;
+								padding: 0;
+								background: none;
+								height: 1.35em;
+								text-align: center;
+							}
+							hr::after { content: "⁂" }
+							i.gloss { font-style: inherit }
+							i.orth { font-style: inherit }
+							i.pron {
+								font-size: smaller;
+								font-style: inherit;
+							}
+							p {
+								display: block;
+								margin: 0;
+								padding: 0;
+							}
+							p + p { margin-top: 1.35em }
+							small.note.version {
+								font-size: inherit;
+								font-style: italic;
+							}
+							span.splash:not([hidden]) {
+								display: block;
+								position: absolute;
+								top: 0;
+								bottom: 0;
+								left: 0;
+								right: 0;
+								margin: auto;
+								height: 1em;
+								font-size: small;
+								font-style: italic;
+								line-height: 1;
+								animation: 3s splash infinite ease-in-out;
+							}
+							span.splash::before { content: open-quote }
+							span.splash::after { content: close-quote }
+							span.splash:not([hidden]) ~ span.splash { display: none }
+							table {
+								width: 100%;
+								text-align: left;
+							}
+							table.dictionary {
+								table-layout: fixed;
+								border-collapse: separate;
+								margin: .675em 0;
+								padding: .3375em .25em;
+							}
+							table.dictionary caption {
+								font-weight: inherit;
+								text-decoration: none;
+							}
+							table.dictionary col { width: 25% }
+							table.dictionary col:nth-child(1) { width: 20% }
+							table.dictionary col:nth-child(4) { width: auto }
+							table.dictionary tbody tr > * {
+								margin: 0;
+								border: thin currentColor solid;
+								padding: 0 .75em;
+								text-align: left;
+							}
+							table.dictionary thead { text-decoration: underline }
+							td, th { vertical-align: middle }
+							th {
+								font-weight: bold;
+								text-align: center;
+							}
+							u { text-decoration: none }
+							u.lang { font-variant: small-caps }
+							u.surname { text-transform: uppercase }
+							@keyframes splash {
+								from { font-size: medium }
+								50% { font-size: large }
+								to { font-size: medium }
+							}
+						</html:style>
+						<html:style type="text/css" title="current" id="css-current"><value-of select="/*//html:style[@title][2]" /></html:style>
+						<html:style type="text/css" title="TE" id="css-TE">
+							@namespace "http://www.w3.org/1999/xhtml";
+							#theme-selector {
+								border-color: #9F9F9F;
+								background: #ECECEC;
+							}
+							html { background: #EDEDED }
+							main {
+								background: white;
+								border-color: #B8B8B8;
+							}
+							main > header, main > footer {
+								border-color: #AAAAAA;
+								background: #ECECEC;
+							}
+							main > header tr > *, main > footer tr > * {
+								border-color: #B0B0B0;
+								background: white;
+							}
+							a[href] { color: inherit }
+							hr { color: black }
+							table.dictionary tbody tr > * { border-color: #515151 }
+						</html:style>
+						<html:style type="text/css" title="RedBook" id="css-RedBook">
+							@namespace "http://www.w3.org/1999/xhtml";
+							#theme-selector {
+								border-color: #F79F9F;
+								background: white;
+							}
+							html { background: #B21A2A }
+							main {
+								background: white;
+								border-color: #F77F7F;
+							}
+							main > header, main > footer {
+								border-color: #6FCFEF;
+								color: #3F3F3F;
+							}
+							main > header tr > *, main > footer tr > * { border-color: #6FCFEF }
+							main > article > header { border-color: #6FCFEF }
+							a[href] { color: #2028B8 }
+							dfn { color: #0FAF0F }
+							hr { color: #3F3F3F }
+							p.def { color: #FF0000 }
+							small.note { color: #FF0000 }
+							span.splash { color: #2028B8 }
+						</html:style>
+						<html:style type="text/css" title="OldStyle" id="css-oldStyle">
+							@namespace "http://www.w3.org/1999/xhtml";
+							#theme-selector {
+								border-color: Grey;
+								background: DarkGrey;
+							}
+							html { background: DimGray }
+							main { border-color: SaddleBrown }
+							main > header, main > footer {
+								border-color: SaddleBrown;
+								background: AntiqueWhite;
+							}
+							main > header > table, main > footer > table { background: OldLace }
+							main > header tr:hover > *, main > footer tr:hover > * { background: FloralWhite }
+							main > header tr > *:hover, main > footer tr > *:hover { background: Snow }
+							main > article { background: OldLace }
+							main > article > header { border-color: SaddleBrown }
+							a[href] { color: SaddleBrown }
+							hr { color: SaddleBrown }
+							i.gloss { color: RosyBrown }
+							span.splash { color: RosyBrown }
+							table.dictionary { background: AntiqueWhite }
+							table.dictionary tbody tr > * {
+								border-color: SaddleBrown;
+								background: OldLace;
+							}
+							table.dictionary tbody tr:hover > * { background: FloralWhite }
+							table.dictionary tbody tr > *:hover { background: Snow }
+						</html:style>
+						<html:style type="text/css" title="Legendary" id="css-legendary">
+							@namespace "http://www.w3.org/1999/xhtml";
+							#theme-selector {
+								border-color: #535555;
+								background: #777899;
+							}
+							html { background: #999ABC }
+							body { color: black }
+							main {
+								background: #EEEEEE;
+								border-color: #545454;
+							}
+							main > header, main > footer {
+								background: #EEE8DD;
+								border-color: #555666;
+							}
+							main > header > table, main > footer > table { background: #DDDDDD }
+							main > header tr:hover > *, main > footer tr:hover > * { background: #EBEBEB }
+							main > header tr > *:hover, main > footer tr > *:hover { background: #F6F6F6 }
+							main > article { color: #334566 }
+							main > article > header { border-color: #999BAD }
+							a[href] { color: #454545 }
+							a[href]:hover { color: #747474 }
+							dfn { color: black }
+							hr { color: #999BAD }
+							i.gloss { color: #999BAD }
+							p.def { color: #227002 }
+							small.note { color: #999BAD }
+							table.dictionary { background: #CCCCCC }
+							table.dictionary tbody tr > * {
+								border-color: #A0A0A0;
+								background: #DDDDDD;
+							}
+							table.dictionary tbody tr:hover > * { background: #EBEBEB }
+							table.dictionary tbody tr > *:hover { background: #F6F6F6 }
+						</html:style>
+						<html:style type="text/css" title="Night" id="css-night">
+							@namespace "http://www.w3.org/1999/xhtml";
+							#theme-selector {
+								border-color: #550022;
+								background: #000000;
+							}
+							html { background: #222222 }
+							body { color: #EEEEEE }
+							main {
+								background: #131313;
+								border-color: #220000;
+							}
+							main > header, main > footer {
+								background: #330011;
+								border-color: #220000;
+							}
+							main > header > table, main > footer > table { background: #441122 }
+							main > header tr:hover > *, main > footer tr:hover > * { background: #4F1F2F }
+							main > header tr > *:hover, main > footer tr > *:hover { background: #5F2F3F }
+							main > article { color: #BB99AA }
+							main > article > header { border-color: #FFBBC3 }
+							a[href] { color: #BCBCBC }
+							a[href]:hover { color: #DEDEDE }
+							dfn { color: white }
+							hr { color: #FFBBC3 }
+							i.gloss { color: #FFBBC3 }
+							p.def { color: #DD0013 }
+							small.note { color: #FFBBC3 }
+							span.splash { color: #CC3355 }
+							table.dictionary { background: #331221 }
+							table.dictionary tbody tr > * {
+								border-color: #542133;
+								background: #441122;
+							}
+							table.dictionary tbody tr:hover > * { background: #4F1F2F }
+							table.dictionary tbody tr > *:hover { background: #5F2F3F }
+						</html:style>
+					</html:head>
+				</template>
+				<template match="tei:teiHeader" mode="body">
+					<html:header>
+						<call-template name="apply-attrs" />
+						<html:table>
+							<html:caption>Text Metadata</html:caption>
+							<html:tr>
+								<html:th>Title</html:th>
+								<html:td><apply-templates select="tei:fileDesc/tei:titleStmt/tei:title" /></html:td>
+							</html:tr>
+							<html:tr>
+								<html:th>Author</html:th>
+								<html:td><apply-templates select="tei:fileDesc/tei:titleStmt/tei:principal" /> (<apply-templates select="tei:fileDesc/tei:titleStmt/tei:author" />)</html:td>
+							</html:tr>
+							<html:tr>
+								<html:th>Edition</html:th>
+								<html:td><apply-templates select="tei:fileDesc/tei:editionStmt/tei:edition" /></html:td>
+							</html:tr>
+							<html:tr>
+								<html:th>Series</html:th>
+								<html:td><apply-templates select="tei:fileDesc/tei:seriesStmt/tei:title" /></html:td>
+							</html:tr>
+							<html:tr>
+								<html:th>Publication info</html:th>
+								<html:td><apply-templates select="tei:fileDesc/tei:publicationStmt/tei:publisher" />, <apply-templates select="tei:fileDesc/tei:publicationStmt/tei:date" /></html:td>
+							</html:tr>
+							<html:tr>
+								<html:th>URI</html:th>
+								<html:td>
+									<html:a>
+										<attribute name="href"><value-of select="tei:fileDesc/tei:publicationStmt/tei:idno[@type='URI']" /></attribute>
+										<value-of select="tei:fileDesc/tei:publicationStmt/tei:idno[@type='URI']" />
+									</html:a>
+								</html:td>
+							</html:tr>
+							<html:tr>
+								<html:th>Availability (<value-of select="tei:fileDesc/tei:publicationStmt/tei:availability/@status" />)</html:th>
+								<html:td>
+									<apply-templates select="tei:fileDesc/tei:publicationStmt/tei:availability" />
+								</html:td>
+							</html:tr>
+							<html:tr>
+								<html:th>Project description</html:th>
+								<html:td><apply-templates select="tei:encodingDesc/tei:projectDesc" /></html:td>
+							</html:tr>
+							<html:tr>
+								<html:th>Source description</html:th>
+								<html:td><apply-templates select="tei:fileDesc/tei:sourceDesc" /></html:td>
+							</html:tr>
+						</html:table>
+						<apply-templates select="tei:revisionDesc" />
+					</html:header>
+				</template>
+				<template match="tei:teiHeader" mode="foot">
+					<html:footer>
+						<html:p>
+							<text>Written in </text><html:a href="http://www.tei-c.org/"><html:abbr title="Text Encoding Initiative">TEI</html:abbr></html:a> and styled as <html:abbr title="HyperText Markup Language">HTML</html:abbr> using <html:abbr title="eXtensible Stylesheet Language Transformations">XSLT</html:abbr>+<html:abbr title="Cascading Style Sheets">CSS</html:abbr><text>.</text>
+							<html:br />
+							<text>☙ </text><html:a href="http://langdev.xyz/">The LANGDEV Project</html:a><text> ❧</text>
+						</html:p>
+					</html:footer>
+				</template>
+				<template match="tei:revisionDesc">
+					<html:table class="revisionDesc">
+						<call-template name="apply-attrs" />
+						<html:caption>Revision History</html:caption>
+						<apply-templates />
+					</html:table>
+				</template>
+				<template match="tei:change">
+					<html:tr class="change">
+						<call-template name="apply-attrs" />
+						<html:th><html:time><value-of select="@when" /></html:time></html:th>
+						<html:td><apply-templates /></html:td>
+					</html:tr>
+				</template>
+				<template match="tei:text">
+					<html:body id="text">
+						<call-template name="apply-attrs" />
+						<html:script type="text/javascript">
+							var themes = [
+								<for-each select="/*//html:style[@title and @title != 'current']">
+									["<value-of select="@id" />", "<value-of select="@title" />"],
+								</for-each>
+							];
+							var selector = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
+							selector.id = "theme-selector";
+							selector.appendChild(document.createTextNode("Theme: "));
+							var select = document.createElementNS("http://www.w3.org/1999/xhtml", "select");
+							var option;
+							for (var i = themes.length; i > 0; i--) {
+								option = document.createElementNS("http://www.w3.org/1999/xhtml", "option");
+								option.textContent = themes[themes.length - i][1];
+								option.value = themes[themes.length - i][0];
+								select.appendChild(option);
+							}
+							select.addEventListener("change", function () {
+								document.getElementById("css-current").textContent = document.getElementById(this.value).textContent;
+							}, false);
+							selector.appendChild(select);
+							document.getElementById("text").insertBefore(selector, document.getElementById("text").firstChild);
+						</html:script>
+						<html:main>
+							<apply-templates select="../tei:teiHeader" mode="body" />
+							<html:article>
+								<apply-templates select="tei:front" />
+								<apply-templates select="tei:body" />
+							</html:article>
+							<apply-templates select="../tei:teiHeader" mode="foot" />
+						</html:main>
+					</html:body>
+				</template>
+				<template match="tei:front">
+					<html:header>
+						<call-template name="apply-attrs" />
+						<apply-templates select="tei:titlePage/tei:docTitle" />
+						<html:div class="epigraph">
+							<apply-templates select="tei:titlePage/tei:epigraph" />
+							<html:script type="text/javascript">
+								var s = document.getElementsByClassName("splash");
+								var ss = Math.floor(Math.random() * s.length);
+								for (var i = s.length - 1; i > -1; i--) if (i !== ss) s.item(i).setAttribute("hidden", "hidden");
+							</html:script>
+						</html:div>
+						<html:hr />
+						<html:p><apply-templates select="tei:titlePage/tei:docEdition" /></html:p>
+						<html:p><apply-templates select="tei:titlePage/tei:byline" /></html:p>
+						<apply-templates select="tei:titlePage/tei:docDate" />
+						<html:hr />
+						<apply-templates select="tei:div" />
+					</html:header>
+				</template>
+				<template match="tei:body">
+					<html:section class="body">
+						<call-template name="apply-attrs" />
+						<apply-templates select="tei:div" mode="dictionary" />
+					</html:section>
+				</template>
+				<template name="apply-lang">
+					<if test="@xml:lang"><attribute name="lang"><value-of select="@xml:lang" /></attribute></if>
+				</template>
+				<template name="resolve-copy">
+					<if test="@copyOf and substring(@copyOf, 1, 1)='#'"><apply-templates select="/.//*[@xml:id=substring(current()/@copyOf, 2)]" /></if>
+				</template>
+				<template name="apply-attrs">
+					<if test="@xml:id"><attribute name="id"><value-of select="@xml:id" /></attribute></if>
+					<if test="@expand"><attribute name="title"><value-of select="@expand" /></attribute></if>
+					<call-template name="apply-lang" />
+					<call-template name="resolve-copy" />
+				</template>
+				<template match="*" mode="resolve-string">
+					<choose>
+						<when test="@copyOf and substring(@copyOf, 1, 1)='#'"><value-of select="/.//*[@xml:id=substring(current()/@copyOf, 2)]" /></when>
+						<otherwise><apply-templates mode="resolve-string" /></otherwise>
+					</choose>
+				</template>
+				<template match="tei:choice[tei:abbr]">
+					<html:abbr>
+						<if test="tei:expan">
+							<attribute name="title"><apply-templates select="tei:expan" /></attribute>
+						</if>
+						<call-template name="apply-attrs" />
+						<apply-templates select="tei:abbr" />
+					</html:abbr>
+				</template>
+				<template match="tei:div">
+					<html:section>
+						<if test="@type">
+							<attribute name="class"><value-of select="@type" /></attribute>
+						</if>
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:section>
+				</template>
+				<template match="tei:div" mode="dictionary">
+					<html:table class="dictionary">
+						<call-template name="apply-attrs" />
+						<html:caption><apply-templates select="tei:head" /></html:caption>
+						<html:colgroup><html:col /><html:col /><html:col /><html:col /></html:colgroup>
+						<html:thead>
+							<html:tr>
+								<html:th>Word</html:th>
+								<html:th><html:abbr title="Pronunciation">Pron.</html:abbr></html:th>
+								<html:th>Etymology</html:th>
+								<html:th>Definition</html:th>
+							</html:tr>
+						</html:thead>
+						<html:tbody>
+							<apply-templates select="tei:entry" />
+						</html:tbody>
+					</html:table>
+				</template>
+				<template match="tei:docDate">
+					<html:p>
+						<call-template name="apply-attrs" />
+						<text>Last updated: </text>
+						<html:time>
+							<if test="@when">
+								<attribute name="datetime"><value-of select="@when" /></attribute>
+							</if>
+							<apply-templates />
+						</html:time>
+					</html:p>
+				</template>
+				<template match="tei:docTitle">
+					<html:header class="docTitle">
+						<call-template name="apply-attrs" />
+						<choose>
+							<when test="tei:titlePart"><apply-templates /></when>
+							<otherwise><html:h1><apply-templates /></html:h1></otherwise>
+						</choose>
+					</html:header>
+				</template>
+				<template match="tei:etym">
+					<html:span class="etym">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:span>
+				</template>
+				<template match="tei:entry">
+					<html:tr class="entry">
+						<call-template name="apply-attrs" />
+						<choose>
+							<when test="tei:form[@type='class']">
+								<html:th class='class' colspan='3'>
+									<for-each select="tei:form">
+										<html:dfn><apply-templates select="tei:orth" /></html:dfn>
+									</for-each>
+								</html:th>
+							</when>
+							<otherwise>
+								<html:th>
+									<for-each select="tei:form">
+										<html:dfn><apply-templates select="tei:orth" /></html:dfn>
+									</for-each>
+								</html:th>
+								<html:td>
+									<for-each select="tei:form">
+										<apply-templates select="tei:pron" />
+									</for-each>
+								</html:td>
+								<html:td><apply-templates select="tei:etym" /></html:td>
+							</otherwise>
+						</choose>
+						<html:td>
+							<html:p class="def"><apply-templates select="tei:gramGrp/tei:pos" /> <apply-templates select="tei:def" /></html:p>
+						</html:td>
+					</html:tr>
+				</template>
+				<template match="tei:forename">
+					<html:u class="forename">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:u>
+				</template>
+				<template match="tei:gloss">
+					<html:i class="gloss">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:i>
+				</template>
+				<template match="tei:head">
+					<html:h2 class="head">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:h2>
+				</template>
+				<template match="tei:ident">
+					<html:code>
+						<attribute name="class">ident <value-of select="@type" /></attribute>
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:code>
+				</template>
+				<template match="tei:lang">
+					<html:u class="lang">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:u>
+				</template>
+				<template match="tei:licence">
+					<for-each select="node()">
+						<choose>
+							<when test="local-name() = 'title'">
+								<html:a>
+									<attribute name="href"><value-of select="../@target" /></attribute>
+									<call-template name="apply-attrs" />
+									<html:cite class="title"><value-of select="." /></html:cite>
+								</html:a>
+							</when>
+							<otherwise><apply-templates select="." /></otherwise>
+						</choose>
+					</for-each>
+				</template>
+				<template match="tei:list[@type='gloss']">
+					<html:dl class="list gloss">
+						<for-each select="*">
+							<choose>
+								<when test="local-name() = 'label'">
+									<html:dt>
+										<call-template name="apply-attrs" />
+										<apply-templates />
+									</html:dt>
+								</when>
+								<when test="local-name() = 'item'">
+									<html:dd>
+										<call-template name="apply-attrs" />
+										<apply-templates />
+									</html:dd>
+								</when>
+							</choose>
+						</for-each>
+					</html:dl>
+				</template>
+				<template match="tei:mentioned">
+					<html:i class="mentioned">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:i>
+				</template>
+				<template match="tei:name">
+					<html:u>
+						<attribute name="class">name <value-of select="@type" /></attribute>
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:u>
+				</template>
+				<template match="tei:note">
+					<html:small>
+						<attribute name="class">note <value-of select="@type" /></attribute>
+						<call-template name="apply-attrs" />
+						[<apply-templates />]
+					</html:small>
+				</template>
+				<template match="tei:orgName">
+					<html:u class="orgName">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:u>
+				</template>
+				<template match="tei:orth">
+					<if test="preceding-sibling::tei:orth or ../preceding-sibling::tei:form/tei:orth">
+						<text> / </text>
+					</if>
+					<html:i class="orth">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:i>
+				</template>
+				<template match="tei:p">
+					<html:p>
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:p>
+				</template>
+				<template match="tei:persName">
+					<html:u class="persName">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:u>
+				</template>
+				<template match="tei:pos">
+					<html:b class="pos">
+						<call-template name="apply-attrs" />
+						<apply-templates /><text>.</text>
+					</html:b>
+					<text> </text>
+				</template>
+				<template match="tei:pron">
+					<if test="preceding-sibling::tei:pron or ../preceding-sibling::tei:form/tei:pron">
+						<text>, </text>
+					</if>
+					<html:i class="pron">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:i>
+				</template>
+				<template match="tei:ptr">
+					<html:a class="ptr">
+						<if test="@target">
+							<attribute name="href"><value-of select="@target" /></attribute>
+						</if>
+						<if test="@mimeType">
+							<attribute name="type"><value-of select="@mimeType" /></attribute>
+						</if>
+						<call-template name="apply-attrs" />
+						<choose>
+							<when test="@target and substring(@target, 1, 1)='#' and /.//tei:entry[@xml:id=substring(current()/@target, 2)]"><apply-templates select="/.//tei:entry[@xml:id=substring(current()/@target, 2)]/tei:form/tei:orth" /></when>
+							<otherwise><value-of select="@target" /></otherwise>
+						</choose>
+					</html:a>
+				</template>
+				<template match="tei:ref">
+					<html:a class="ref">
+						<if test="@target">
+							<attribute name="href"><value-of select="@target" /></attribute>
+						</if>
+						<if test="@mimeType">
+							<attribute name="type"><value-of select="@mimeType" /></attribute>
+						</if>
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:a>
+				</template>
+				<template match="tei:rs">
+					<html:u>
+						<attribute name="class">rs <value-of select="@type" /></attribute>
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:u>
+				</template>
+				<template match="tei:seg">
+					<html:span>
+						<attribute name="class">seg <value-of select="@type" /></attribute>
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:span>
+				</template>
+				<template match="tei:seg[@type='splash']">
+					<html:span class="seg splash">
+						<call-template name="apply-attrs" />
+						<if test="@subtype != 'default'">
+							<attribute name="hidden">hidden</attribute>
+						</if>
+						<apply-templates />
+					</html:span>
+				</template>
+				<template match="tei:surname">
+					<html:u class="surname">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:u>
+				</template>
+				<template match="tei:title">
+					<html:cite class="title">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:cite>
+				</template>
+				<template match="tei:titlePart">
+					<choose>
+						<when test="@type = 'main'">
+							<html:h1 class="titlePart main">
+								<call-template name="apply-attrs" />
+								<apply-templates />
+							</html:h1>
+						</when>
+						<otherwise>
+							<html:p>
+								<attribute name="class">titlePart <value-of select="@type" /></attribute>
+								<call-template name="apply-attrs" />
+								<apply-templates />
+							</html:p>
+						</otherwise>
+					</choose>
+				</template>
+				<template match="tei:expan/tei:choice[tei:abbr]">
+					<value-of select="tei:abbr" />
+					<if test="tei:expan"><text>(</text><apply-templates select="tei:expan" /><text>)</text></if>
+				</template>
+				<template match="*">
+					<choose>
+						<when test="@copyOf"><call-template name="resolve-copy" /></when>
+						<otherwise><apply-templates /></otherwise>
+					</choose>
+				</template>
+			</stylesheet>
+		</xenoData>
+
+		<!--  REVISION DESCRIPTIONS  -->
+
+		<revisionDesc>
+			<change when="2017-10-08">
+				Rewrote <choice><abbr>LREC</abbr><expan><choice><abbr>LexisML</abbr><expan>Lexis Markup Language</expan></choice> index RECord</expan></choice>+<choice><abbr>HTML</abbr><expan>HyperText Markup Language</expan></choice> dictionary files into a single <choice><abbr>TEI</abbr><expan>Text Encoding Initiative</expan></choice> document.
+				Corrections were made where errors were found and documentation was improved.
+				<note type="version">2.01</note>
+			</change>
+			<change when="2017-07-09">
+				Created <choice><abbr>LREC</abbr><expan><choice><abbr>LexisML</abbr><expan>Lexis Markup Language</expan></choice> index RECord</expan></choice>+<choice><abbr>HTML</abbr><expan>HyperText Markup Language</expan></choice> dictionary files, including frontmatter, from the original source documents.
+				<note type="version">1.01</note>
+			</change>
+		</revisionDesc>
+
+	<!--  END TEI HEADER  -->
+
+	</teiHeader>
+
+	<!--  TEXT  -->
+
+	<text>
+
+		<!--  FRONTMATTER  -->
+
+		<front>
+
+			<!--  TITLE PAGE  -->
+
+			<titlePage>
+				<docTitle>
+					<titlePart type="main" copyOf="#title-main" />
+					<titlePart type="sub" copyOf="#title-sub" />
+				</docTitle>
+				<byline>
+					<docAuthor copyOf="#author-name"></docAuthor>
+				</byline>
+				<docEdition copyOf="#version-no" />
+				<docDate when="2017-10-08">08 October 2017</docDate>
+				<epigraph>
+					<p>
+						<seg type="splash" subtype="default">Kingly!</seg>
+						<seg type="splash">Emotional!</seg>
+						<seg type="splash">Great!</seg>
+						<seg type="splash">Small!</seg>
+						<seg type="splash">Woah!</seg>
+						<seg type="splash">Good!</seg>
+						<seg type="splash">Bad!</seg>
+						<seg type="splash">Scary!</seg>
+						<seg type="splash">Shoo!</seg>
+						<seg type="splash">Fixed!</seg>
+						<seg type="splash">Out loud!</seg>
+						<seg type="splash">Edited!</seg>
+						<seg type="splash">.app!</seg>
+						<seg type="splash">Land ho!</seg>
+					</p>
+				</epigraph>
+			</titlePage>
+
+			<!--  PREFACE  -->
+
+			<div xml:id="forward" type="preface">
+				<p>
+					<lang>Lrex</lang> is an early culture and language in the <lang>Jastu-Sevensi</lang> language family.
+					Most of the words in the known <lang>Lrex</lang> lexicon pertained to feelings or emotions, as these are the words which went on to influence later languages.
+					<lang>Lrex</lang> is highly onomatopœic and features a large number of vowels.
+				</p>
+				<p>
+					The words below are grouped into six generations based on their approximate times of origin.
+					The earliest of these are categorized as <mentioned><lang>Lrex version 1</lang></mentioned> and the latest as <mentioned><lang>Lrex version 6</lang></mentioned>.
+					As most of the influence on later <lang>Jastu-Sevensi</lang> languages occured around the time of <lang>Lrex version 5</lang>, our knowledge of <lang>Lrex version 6</lang> is incomplete.
+				</p>
+				<p>
+					Definitive etymological classifications for <lang>Lrex</lang> words have not been made.
+					However, in the later <lang>Lrex</lang> versions, broad associations have been noted.
+					These are marked via a <rs type="unicode">U+223B ∻ HOMOTHETIC</rs> <name type="org">Unicode</name> character below.
+				</p>
+				<p>
+					As <lang>Lrex</lang> is in essence a speculative proto-language, the pronunciation data should not be taken as anything more than a broad guideline.
+					However, given an American English dialect, the following pronunciation key may be helpful:
+				</p>
+				<list type="gloss">
+					<label><mentioned>a</mentioned></label>
+					<item>Like the <mentioned>a</mentioned> in <mentioned>at</mentioned></item>
+					<label><mentioned>ā</mentioned></label>
+					<item>Like the <mentioned>ay</mentioned> in <mentioned>play</mentioned></item>
+					<label><mentioned>ä</mentioned></label>
+					<item>Like the <mentioned>a</mentioned> in <mentioned>lawn</mentioned></item>
+					<label><mentioned>ə</mentioned></label>
+					<item>Like the <mentioned>u</mentioned> in <mentioned>fun</mentioned></item>
+					<label><mentioned>e</mentioned></label>
+					<item>Like the first <mentioned>e</mentioned> in <mentioned>enter</mentioned></item>
+					<label><mentioned>ē</mentioned></label>
+					<item>Like the <mentioned>e</mentioned> in <mentioned>be</mentioned></item>
+					<label><mentioned>i</mentioned></label>
+					<item>Like the <mentioned>i</mentioned> in <mentioned>it</mentioned></item>
+					<label><mentioned>ī</mentioned></label>
+					<item>Like the <mentioned>i</mentioned> in <mentioned>white</mentioned></item>
+					<label><mentioned>ō</mentioned></label>
+					<item>Like the <mentioned>o</mentioned> in <mentioned>grow</mentioned></item>
+					<label><mentioned>u</mentioned></label>
+					<item>Like the <mentioned>u</mentioned> in <mentioned>june</mentioned></item>
+					<label><mentioned>œ</mentioned></label>
+					<item>Like the <mentioned>oy</mentioned> in <mentioned>joy</mentioned></item>
+					<label><mentioned>ớ</mentioned></label>
+					<item>Similar to <mentioned>œ</mentioned>, above, except with the <mentioned>ē</mentioned> sound replaced with <mentioned>ī</mentioned></item>
+					<label><mentioned>ǽ</mentioned></label>
+					<item>Pronounced <mentioned>ay-eh</mentioned></item>
+				</list>
+				<p>
+					<lang>Lrex</lang> has been given the language code <ident type="BCP47">art-x-lrx</ident>.
+					As with any language using the <ident type="BCP47">art</ident> tag, specifying the <ident type="BCP47">Latn</ident> script may prove useful.
+					<lang>Lrex</lang> has no known native script.
+				</p>
+			</div>
+
+		<!--  END FRONTMATTER  -->
+
+		</front>
+
+		<!--  DICTIONARY BODY  -->
+
+		<body xml:id="dict">
+
+			<!--  LREX I  -->
+
+			<div xml:id="dict.0001">
+				<head><lang>Lrex version 1</lang></head>
+				<entry xml:id="dict.0001.oi">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0001">oi</orth>
+					</form>
+					<gramGrp>
+						<pos expand="exclamation">excl</pos>
+					</gramGrp>
+					<def>woah</def>
+				</entry>
+				<entry xml:id="dict.0001.ra">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0001">ra</orth>
+					</form>
+					<gramGrp>
+						<pos expand="exclamation">excl</pos>
+					</gramGrp>
+					<def>shoo</def>
+				</entry>
+				<entry xml:id="dict.0001.ee">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0001">ee</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>good</def>
+				</entry>
+				<entry xml:id="dict.0001.tah">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0001">tah</orth>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<def>that</def>
+				</entry>
+				<entry xml:id="dict.0001.aah">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0001">aah</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>bad</def>
+				</entry>
+				<entry xml:id="dict.0001.aei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0001">aei</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>scary</def>
+				</entry>
+			</div>
+
+			<!--  LREX II  -->
+
+			<div xml:id="dict.0002">
+				<head><lang>Lrex version 2</lang></head>
+				<entry xml:id="dict.0002.ohwei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0002">ohwei</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>surprising</def>
+				</entry>
+				<entry xml:id="dict.0002.raoi">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0002">raoi</orth>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>leave</def>
+				</entry>
+				<entry xml:id="dict.0002.sa">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0002">sa</orth>
+					</form>
+					<gramGrp>
+						<pos expand="exclamation">excl</pos>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>stop/shoo</def>
+				</entry>
+				<entry xml:id="dict.0002.ae">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0002">ae</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>good/pleasant</def>
+				</entry>
+				<entry xml:id="dict.0002.ee">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0002">ee</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>great</def>
+				</entry>
+				<entry xml:id="dict.0002.uh">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0002">uh</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>relaxing</def>
+				</entry>
+				<entry xml:id="dict.0002.tuh">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0002">tuh</orth>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<def>this/that/you/me/etc.</def>
+				</entry>
+				<entry xml:id="dict.0002.aah">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0002">aah</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>bad</def>
+				</entry>
+				<entry xml:id="dict.0002.iy">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0002">iy</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>scary</def>
+				</entry>
+				<entry xml:id="dict.0002.ta">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0002">ta</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>do</def>
+				</entry>
+			</div>
+
+			<!--  LREX III  -->
+
+			<div xml:id="dict.0003">
+				<head><lang>Lrex version 3</lang></head>
+				<entry xml:id="dict.0003.koi">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">koi</orth>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>stop</def>
+				</entry>
+				<entry xml:id="dict.0003.ka">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">ka</orth>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>go</def>
+				</entry>
+				<entry xml:id="dict.0003.ohwi">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">ohwi</orth>
+					</form>
+					<gramGrp>
+						<pos expand="exclamation">excl</pos>
+					</gramGrp>
+					<def>a surprised exclamation</def>
+				</entry>
+				<entry xml:id="dict.0003.rie">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">rie</orth>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>leave</def>
+				</entry>
+				<entry xml:id="dict.0003.soi">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">soi</orth>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>quit</def>
+				</entry>
+				<entry xml:id="dict.0003.sie">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">sie</orth>
+					</form>
+					<gramGrp>
+						<pos expand="exclamation">excl</pos>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>shoo</def>
+				</entry>
+				<entry xml:id="dict.0003.hae">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">hae</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>good</def>
+				</entry>
+				<entry xml:id="dict.0003.aahe">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">aahe</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>pleasant</def>
+				</entry>
+				<entry xml:id="dict.0003.eehai">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">eehai</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>calm</def>
+				</entry>
+				<entry xml:id="dict.0003.uhai">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">uhai</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>relaxing</def>
+				</entry>
+				<entry xml:id="dict.0003.tuwei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">tuwei</orth>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<def>this/that</def>
+				</entry>
+				<entry xml:id="dict.0003.uhwei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">uhwei</orth>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<def>he/she/they</def>
+				</entry>
+				<entry xml:id="dict.0003.ahnwei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">ahnwei</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>bad</def>
+				</entry>
+				<entry xml:id="dict.0003.iywei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">iywei</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>scary</def>
+				</entry>
+				<entry xml:id="dict.0003.tai">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">tai</orth>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>do</def>
+				</entry>
+				<entry xml:id="dict.0003.-wei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">-wei</orth>
+						<pron>wē</pron>
+					</form>
+					<gramGrp>
+						<pos>affix</pos>
+					</gramGrp>
+					<def>of or pertaining to a thing</def>
+				</entry>
+				<entry xml:id="dict.0003.-hai">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">-hai</orth>
+						<pron>hī</pron>
+					</form>
+					<gramGrp>
+						<pos>affix</pos>
+					</gramGrp>
+					<def>calm</def>
+				</entry>
+				<entry xml:id="dict.0003.-he">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">-he</orth>
+						<pron>he</pron>
+					</form>
+					<form type="variant">
+						<orth xml:lang="art-Latn-x-lrx-0003">-hǽ</orth>
+						<pron>hǽ</pron>
+					</form>
+					<gramGrp>
+						<pos>affix</pos>
+					</gramGrp>
+					<def>good</def>
+				</entry>
+				<entry xml:id="dict.0003.aa-">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">aa-</orth>
+						<pron>ä</pron>
+					</form>
+					<gramGrp>
+						<pos>affix</pos>
+					</gramGrp>
+					<def>somewhat</def>
+				</entry>
+				<entry xml:id="dict.0003.ahn-">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">ahn-</orth>
+						<pron>än</pron>
+					</form>
+					<gramGrp>
+						<pos>affix</pos>
+					</gramGrp>
+					<def>bad</def>
+				</entry>
+				<entry xml:id="dict.0003.iy-">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0003">iy-</orth>
+						<pron>ī</pron>
+					</form>
+					<gramGrp>
+						<pos>affix</pos>
+					</gramGrp>
+					<def>scary</def>
+				</entry>
+			</div>
+
+			<!--  LREX IV  -->
+
+			<div xml:id="dict.0004">
+				<head><lang>Lrex version 4</lang></head>
+				<entry xml:id="dict.0004.kohwhǽ">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">kohwhǽ</orth>
+						<pron>kō+&#x200B;whǽ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>stop/wait</def>
+				</entry>
+				<entry xml:id="dict.0004.tawhǽ">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">tawhǽ</orth>
+						<pron>tä+&#x200B;whǽ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>go</def>
+				</entry>
+				<entry xml:id="dict.0004.ohwy">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">ohwy</orth>
+						<pron>ōh+&#x200B;wī</pron>
+					</form>
+					<gramGrp>
+						<pos expand="exclamation">excl</pos>
+					</gramGrp>
+					<def>a surprised exclamation</def>
+				</entry>
+				<entry xml:id="dict.0004.wahwei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">wahwei</orth>
+						<pron>wä+&#x200B;wā</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>surprising</def>
+				</entry>
+				<entry xml:id="dict.0004.rie">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">rie</orth>
+						<pron>rē</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>leave</def>
+				</entry>
+				<entry xml:id="dict.0004.kotai">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">kotai</orth>
+						<pron>kō+&#x200B;tī</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>quit</def>
+				</entry>
+				<entry xml:id="dict.0004.rawhǽ">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">rawhǽ</orth>
+						<pron>rä+&#x200B;whǽ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="exclamation">excl</pos>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>shoo</def>
+				</entry>
+				<entry xml:id="dict.0004.hae">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">hae</orth>
+						<pron>hā</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>good</def>
+				</entry>
+				<entry xml:id="dict.0004.ahǽ">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">ahǽ</orth>
+						<pron>ah+&#x200B;ǽ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>pleasant</def>
+				</entry>
+				<entry xml:id="dict.0004.eehae">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">eehae</orth>
+						<pron>ē+&#x200B;hā</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>great</def>
+				</entry>
+				<entry xml:id="dict.0004.eehoi">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">eehoi</orth>
+						<pron>ē+&#x200B;hớ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>peaceful</def>
+				</entry>
+				<entry xml:id="dict.0004.hohwǽ'ihy">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">hohwǽ'ihy</orth>
+						<pron>hō+&#x200B;wǽ·&#x200B;ī</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>calm</def>
+				</entry>
+				<entry xml:id="dict.0004.hoita">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">hoita</orth>
+						<pron>hōē+&#x200B;tə</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>relaxing</def>
+				</entry>
+				<entry xml:id="dict.0004.awei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">awei</orth>
+						<pron>ä+&#x200B;wā</pron>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<def>something (this/that)</def>
+				</entry>
+				<entry xml:id="dict.0004.uhwei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">uhwei</orth>
+						<pron>ə+&#x200B;wā</pron>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<def>he/she/they</def>
+				</entry>
+				<entry xml:id="dict.0004.ahn">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">ahn</orth>
+						<pron>än</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>bad</def>
+				</entry>
+				<entry xml:id="dict.0004.koe">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">koe</orth>
+						<pron>kō</pron>
+					</form>
+					<gramGrp>
+						<pos expand="exclamation">excl</pos>
+					</gramGrp>
+					<def>no</def>
+				</entry>
+				<entry xml:id="dict.0004.taw">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">taw</orth>
+						<pron>täw</pron>
+					</form>
+					<gramGrp>
+						<pos expand="exclamation">excl</pos>
+					</gramGrp>
+					<def>yes</def>
+				</entry>
+				<entry xml:id="dict.0004.iy">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">iy</orth>
+						<pron>ī</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>scary</def>
+				</entry>
+				<entry xml:id="dict.0004.ee">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">ee</orth>
+						<pron>ē</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adverb">adv</pos>
+					</gramGrp>
+					<def>very</def>
+				</entry>
+				<entry xml:id="dict.0004.een">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">een</orth>
+						<pron>ēn</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>very bad / horrible</def>
+				</entry>
+				<entry xml:id="dict.0004.eeyih">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">eeyih</orth>
+						<pron>ē+&#x200B;yīh</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>very frightening</def>
+				</entry>
+				<entry xml:id="dict.0004.a-">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">a-</orth>
+						<pron>ä</pron>
+					</form>
+					<gramGrp>
+						<pos>affix</pos>
+					</gramGrp>
+					<def>somewhat/one</def>
+				</entry>
+				<entry xml:id="dict.0004.aht">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">aht</orth>
+						<pron>ät</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adverb">adv</pos>
+					</gramGrp>
+					<def>moderately</def>
+				</entry>
+				<entry xml:id="dict.0004.wah">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">wah</orth>
+						<pron>wä</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>different/strange</def>
+				</entry>
+				<entry xml:id="dict.0004.whǽ">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0004">whǽ</orth>
+						<pron>whǽ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>go</def>
+				</entry>
+			</div>
+
+			<!--  LREX V  -->
+
+			<div xml:id="dict.0005">
+				<head><lang>Lrex version 5</lang></head>
+				<entry xml:id="dict.0005.aln">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">aln</orth>
+						<pron>äln</pron>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<def>some</def>
+				</entry>
+				<entry xml:id="dict.0005.älhǽ">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">alhǽ</orth>
+						<pron>äl+&#x200B;hǽ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.aln" /></etym>
+					<def>pleasant</def>
+				</entry>
+				<entry xml:id="dict.0005.alwei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">alwei</orth>
+						<pron>äl+&#x200B;wā</pron>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.aln" /></etym>
+					<def>something</def>
+				</entry>
+				<entry xml:id="dict.0005.alht">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">alht</orth>
+						<pron>älht</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adverb">adv</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.aln" /></etym>
+					<def>moderately</def>
+				</entry>
+				<entry xml:id="dict.0005.hǽn">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">hǽn</orth>
+						<pron>hǽn</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>good</def>
+				</entry>
+				<entry xml:id="dict.0005.hoin">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">hoin</orth>
+						<pron>hœn</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adverb">adv</pos>
+					</gramGrp>
+					<def>still</def>
+				</entry>
+				<entry xml:id="dict.0005.hohwǽ'uh">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">hohwǽ'uh</orth>
+						<pron>hō+&#x200B;wǽ·&#x200B;ə</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.hoin" /></etym>
+					<def>calm</def>
+				</entry>
+				<entry xml:id="dict.0005.hoiten">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">hoiten</orth>
+						<pron>hœ+&#x200B;ten</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.hoin" /></etym>
+					<def>relaxing</def>
+				</entry>
+				<entry xml:id="dict.0005.ee">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">ee</orth>
+						<pron>ē</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adverb">adv</pos>
+					</gramGrp>
+					<def>very</def>
+				</entry>
+				<entry xml:id="dict.0005.elnhǽ">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">elnhǽ</orth>
+						<pron>eln+&#x200B;hǽ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.ee" /></etym>
+					<def>great</def>
+				</entry>
+				<entry xml:id="dict.0005.elnhoi">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">elnhoi</orth>
+						<pron>eln+&#x200B;hœ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.ee" /></etym>
+					<def>peaceful</def>
+				</entry>
+				<entry xml:id="dict.0005.elnhun">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">elnhun</orth>
+						<pron>eln+&#x200B;hən</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.ee" /></etym>
+					<def>horrible</def>
+				</entry>
+				<entry xml:id="dict.0005.elnyih">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">elnyih</orth>
+						<pron>eln+&#x200B;yīh</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.ee" /></etym>
+					<def>very frightening</def>
+				</entry>
+				<entry xml:id="dict.0005.un">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">un</orth>
+						<pron>ən</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>bad</def>
+				</entry>
+				<entry xml:id="dict.0005.koen">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">koen</orth>
+						<pron>kō+&#x200B;en</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adverb">adv</pos>
+						<pos expand="exclamation">excl</pos>
+					</gramGrp>
+					<def>no/not</def>
+				</entry>
+				<entry xml:id="dict.0005.koewhǽ">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">koewhǽ</orth>
+						<pron>kœ+&#x200B;whǽ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.koen" /></etym>
+					<def>stop/wait</def>
+				</entry>
+				<entry xml:id="dict.0005.koeta">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">koeta</orth>
+						<pron>kœ+&#x200B;tə</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.koen" /></etym>
+					<def>quit</def>
+				</entry>
+				<entry xml:id="dict.0005.tawen">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">tawen</orth>
+						<pron>täw+&#x200B;en</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+						<pos expand="excl">exclamation</pos>
+					</gramGrp>
+					<def>yes/right</def>
+				</entry>
+				<entry xml:id="dict.0005.tehǽ">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">tehǽ</orth>
+						<pron>täh+&#x200B;ǽ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.tawen" /></etym>
+					<def>go</def>
+				</entry>
+				<entry xml:id="dict.0005.wah">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">wah</orth>
+						<pron>wäh</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<def>strange</def>
+				</entry>
+				<entry xml:id="dict.0005.wahnei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">wahnei</orth>
+						<pron>wäh+&#x200B;nā</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.wah" /></etym>
+					<def>surprising</def>
+				</entry>
+				<entry xml:id="dict.0005.rie">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">rie</orth>
+						<pron>rē</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>leave</def>
+				</entry>
+				<entry xml:id="dict.0005.raewhǽ">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">raewhǽ</orth>
+						<pron>rā+&#x200B;whǽ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.rie" /></etym>
+					<def>shoo</def>
+				</entry>
+				<entry xml:id="dict.0005.whǽn">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">whǽn</orth>
+						<pron>whǽn</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>move</def>
+				</entry>
+				<entry xml:id="dict.0005.ohn">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">ohn</orth>
+						<pron>ōhn</pron>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<def>move</def>
+				</entry>
+				<entry xml:id="dict.0005.ono">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">ono</orth>
+						<pron>ō+&#x200B;nō</pron>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.ohn" /></etym>
+					<def>you</def>
+				</entry>
+				<entry xml:id="dict.0005.jo">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">jo</orth>
+						<pron>ʒō</pron>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.ohn" /></etym>
+					<def>me/i</def>
+				</entry>
+				<entry xml:id="dict.0005.ohnwei">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">ohnwei</orth>
+						<pron>ōhn+&#x200B;wā</pron>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.ohn" /></etym>
+					<def>they/he/she</def>
+				</entry>
+				<entry xml:id="dict.0005.wiev">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">wiev</orth>
+						<pron>wēv</pron>
+					</form>
+					<gramGrp>
+						<pos expand="noun">n</pos>
+					</gramGrp>
+					<def>thing</def>
+				</entry>
+				<entry xml:id="dict.0005.sǽna">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">sǽna</orth>
+						<pron>sǽ+&#x200B;nə</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>are/is</def>
+				</entry>
+				<entry xml:id="dict.0005.sǽkon">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">sǽkon</orth>
+						<pron>sǽ+&#x200B;kōn</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.sǽna" /></etym>
+					<def>are/is not</def>
+				</entry>
+				<entry xml:id="dict.0005.teen">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">teen</orth>
+						<pron>tēn</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+					</gramGrp>
+					<def>do</def>
+				</entry>
+				<entry xml:id="dict.0005.teewǽn">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">teewǽn</orth>
+						<pron>tē+&#x200B;wǽn</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.teen" /></etym>
+					<def>live/alive</def>
+				</entry>
+				<entry xml:id="dict.0005.tekowǽn">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0005">tekowǽn</orth>
+						<pron>tā+&#x200B;kō+&#x200B;&#x200B;wǽn</pron>
+					</form>
+					<gramGrp>
+						<pos expand="verb">v</pos>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0005.teen" /></etym>
+					<def>die/dead</def>
+				</entry>
+			</div>
+
+			<!--  LREX VI  -->
+
+			<div xml:id="dict.0006">
+				<head><lang>Lrex version 6</lang></head>
+				<entry xml:id="dict.0006.tewǽ">
+					<form type="class">
+						<orth xml:lang="art-Latn-x-lrx-0006">tewǽ</orth>
+					</form>
+					<def>life</def>
+				</entry>
+				<entry xml:id="dict.0006.tewǽn">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0006">tewǽn</orth>
+						<pron>tā+&#x200B;wǽn</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0006.tewǽ" /> <gloss>life</gloss></etym>
+					<def>alive</def>
+				</entry>
+				<entry xml:id="dict.0006.tewhǽ">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0006">tewhǽ</orth>
+						<pron>tā+&#x200B;whǽ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0006.tewǽ" /> <gloss>life</gloss></etym>
+					<def>living</def>
+				</entry>
+				<entry xml:id="dict.0006.witawǽ">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0006">witawǽ</orth>
+						<pron>wi+&#x200B;tä+&#x200B;wǽ</pron>
+					</form>
+					<gramGrp>
+						<pos expand="noun">n</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0006.tewǽ" /> <gloss>life</gloss></etym>
+					<def>water</def>
+				</entry>
+				<entry xml:id="dict.0006.wiku">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0006">wiku</orth>
+						<pron>wi+&#x200B;ku</pron>
+					</form>
+					<gramGrp>
+						<pos expand="noun">n</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0006.tewǽ" /> <gloss>life</gloss></etym>
+					<def>food</def>
+				</entry>
+				<entry xml:id="dict.0006.tekǽ">
+					<form type="class">
+						<orth xml:lang="art-Latn-x-lrx-0006">tekǽ</orth>
+					</form>
+					<def>death</def>
+				</entry>
+				<entry xml:id="dict.0006.tekǽn">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0006">tekǽn</orth>
+						<pron>tā+&#x200B;kǽn</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0006.tekǽ" /> <gloss>death</gloss></etym>
+					<def>dead</def>
+				</entry>
+				<entry xml:id="dict.0006.teko">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0006">teko</orth>
+						<pron>tā+&#x200B;kō</pron>
+					</form>
+					<gramGrp>
+						<pos expand="adjective">adj</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0006.tekǽ" /> <gloss>death</gloss></etym>
+					<def>dying</def>
+				</entry>
+				<entry xml:id="dict.0006.waev">
+					<form type="class">
+						<orth xml:lang="art-Latn-x-lrx-0006">waev</orth>
+					</form>
+					<def>thing</def>
+				</entry>
+				<entry xml:id="dict.0006.alwee">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0006">alwee</orth>
+						<pron>äl+&#x200B;wā</pron>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0006.waev" /> <gloss>thing</gloss></etym>
+					<def>something</def>
+				</entry>
+				<entry xml:id="dict.0006.ohnwev">
+					<form>
+						<orth xml:lang="art-Latn-x-lrx-0006">ohnwev</orth>
+						<pron>ōhn+&#x200B;wev</pron>
+					</form>
+					<gramGrp>
+						<pos expand="pronoun">pron</pos>
+					</gramGrp>
+					<etym><seg expand="related to">∻</seg> <ptr target="#dict.0006.waev" /> <gloss>thing</gloss></etym>
+					<def>they/he/she</def>
+				</entry>
+			</div>
+
+		<!--  END DICTIONARY BODY  -->
+
+		</body>
+
+	<!--  END TEXT  -->
+
+	</text>
+
+</TEI>
