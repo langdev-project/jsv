@@ -10,23 +10,23 @@
 		<!--  FILE DESCRIPTION  -->
 		<fileDesc>
 			<titleStmt>
-				<title>Eho: Documentation and Dictionary</title>
-				<author>The LANGDEV Project</author>
-				<principal>Gô SHOEMAKE</principal>
+				<title><seg xml:id="title-main">Eho</seg>: <seg xml:id="title-sub">Documentation and Dictionary</seg></title>
+				<author xml:id="author-name"><orgName xml:id="langdev-project">The LANGDEV Project</orgName></author>
+				<principal><persName xml:id="go-sh"><forename>Gô</forename> <surname>SHOEMAKE</surname></persName></principal>
 			</titleStmt>
 			<editionStmt>
-				<edition>Version 2, Draft 02</edition>
+				<edition xml:id="version-no">Version 2, Draft 03</edition>
 			</editionStmt>
 			<publicationStmt>
-				<publisher>The LANGDEV Project</publisher>
+				<publisher><orgName copyOf="#langdev-project" /></publisher>
 				<date>2017</date>
-				<idno type="URI">tag:langdev.xyz,2017:jsv:eho:dict:2:02</idno>
+				<idno type="URI">tag:langdev.xyz,2017:jsv:eho:dict:2:03</idno>
 				<availability status="free">
 					<licence target="https://creativecommons.org/publicdomain/zero/1.0/">Released into the public domain under a <title>CC0 1.0 Universal License</title>.</licence>
 				</availability>
 			</publicationStmt>
 			<seriesStmt>
-				<title>The LANGDEV Project Dictionaries</title>
+				<title xml:id="project-dict">The LANGDEV Project Dictionaries</title>
 			</seriesStmt>
 			<sourceDesc>
 				<p>
@@ -41,7 +41,7 @@
 
 		<encodingDesc>
 			<projectDesc>
-				<p>Comprehensive linguistic reference for the various <name type="org">LANGDEV</name> languages.</p>
+				<p>Comprehensive linguistic reference for the various <orgName>LANGDEV</orgName> languages.</p>
 			</projectDesc>
 			<tagsDecl partial="true">
 				<namespace name="http://www.tei-c.org/ns/1.0">
@@ -78,21 +78,29 @@
 						<html:title><value-of select="tei:fileDesc/tei:titleStmt/tei:title" /></html:title>
 						<html:meta charset="utf-8" />
 						<html:meta name="author">
-							<attribute name="content"><value-of select="tei:fileDesc/tei:titleStmt/tei:author" /></attribute>
+							<attribute name="content"><apply-templates select="tei:fileDesc/tei:titleStmt/tei:author" mode="resolve-string" /></attribute>
 						</html:meta>
 						<html:meta name="publisher">
-							<attribute name="content"><value-of select="tei:fileDesc/tei:titleStmt/tei:publisher" /></attribute>
+							<attribute name="content"><apply-templates select="tei:fileDesc/tei:publicationStmt/tei:publisher" mode="resolve-string" /></attribute>
 						</html:meta>
 						<html:link rel="license">
-							<attribute name="href"><value-of select="tei:fileDesc/tei:publicationStmt/tei:license/@target" /></attribute>
+							<attribute name="href"><apply-templates select="tei:fileDesc/tei:publicationStmt/tei:availability/tei:licence/@target" mode="resolve-string" /></attribute>
 						</html:link>
-						<html:style type="text/css">
+						<html:style type="text/css" id="css-base">
 							@namespace "http://www.w3.org/1999/xhtml";
+							#theme-selector {
+								display: block;
+								margin: 0 0 .675em;
+								border: thin currentColor solid;
+								padding: .3375em .5em;
+								font-size: small;
+								text-align: right;
+							}
 							html {
 								margin: 0;
 								padding: 0;
-								background: DimGray;
 								font: large/1.35 "Junicode", serif;
+								font-variant-numeric: oldstyle-nums;
 							}
 							body {
 								margin: auto;
@@ -102,72 +110,46 @@
 							main {
 								display: block;
 								margin: 0;
-								border: thin SaddleBrown solid;
+								border: thin currentColor solid;
 								padding: 0;
 							}
 							main > header, main > footer {
 								display: block;
 								margin: 0;
 								padding: 1.35em 1em;
-								background: AntiqueWhite;
 								font-size: x-small;
 								text-align: center;
 							}
-							main > header {
-								border-bottom: thin SaddleBrown solid;
-							}
-							main > footer {
-								border-top: thin SaddleBrown solid;
-							}
+							main > header { border-bottom: thin currentColor solid }
+							main > footer { border-top: thin currentColor solid }
 							main > header > table, main > footer > table {
 								margin: 0;
 								border-collapse: collapse;
 								padding: 0;
 								width: 100%;
-								background: OldLace;
 							}
-							main > header > table + table, main > footer > table + table {
-								margin-top: .675em;
-							}
-							main > header tr > *, main > footer tr > * {
-								border: thin currentColor solid;
-							}
-							main > header tr > *:first-child, main > footer tr > * {
-								width: 10em;
-							}
-							main > header tr:hover > *, main > footer tr:hover > * {
-								background: FloralWhite;
-							}
-							main > header tr > *:hover, main > footer tr > *:hover {
-								background: Snow;
-							}
+							main > header > table + table, main > footer > table + table { margin-top: .675em }
+							main > header tr > *, main > footer tr > * { border: thin currentColor solid }
+							main > header tr > *:first-child, main > footer tr > * { width: 10em }
 							main > article {
 								display: block;
 								margin: 0;
 								padding: 1.35em 1.5em;
-								background: OldLace;
 							}
 							main > article > header {
 								display: block;
 								margin: 0 0 1.35em;
-								border-style: none none solid;
-								border-color: transparent transparent SaddleBrown;
-								border-width: 0 0 thin;
+								border-bottom: thin currentColor solid;
 								padding: 0 0 1.35em;
 								text-align: center;
 								font-size: medium;
 							}
-							main > article > header p:not(:first-child) {
-								margin: 0;
-							}
-							main > article > header section {
-								text-align: justify;
-							}
-							main > article > header section p:not(:first-child) {
-								margin: 1.35em 0 0;
-							}
-							a[href] {
-								color: SaddleBrown;
+							main > article > header p:not(:first-child) { margin: 0 }
+							main > article > header section { text-align: justify }
+							main > article > header section p:not(:first-child) { margin: 1.35em 0 0 }
+							b.pos {
+								font-weight: inherit;
+								font-style: italic;
 							}
 							caption {
 								margin: 0 0 .675em;
@@ -205,13 +187,10 @@
 								border: none;
 								padding: 0;
 								background: none;
-								color: SaddleBrown;
 								height: 1.35em;
 								text-align: center;
 							}
-							hr::after {
-								content: "⁂";
-							}
+							hr::after { content: "⁂" }
 							i.pron {
 								font-size: smaller;
 								font-style: inherit;
@@ -221,9 +200,7 @@
 								margin: 0;
 								padding: 0;
 							}
-							p + p {
-								margin-top: 1.35em;
-							}
+							p + p { margin-top: 1.35em }
 							small.note.version {
 								font-size: inherit;
 								font-style: italic;
@@ -237,21 +214,14 @@
 								right: 0;
 								margin: auto;
 								height: 1em;
-								color: RosyBrown;
 								font-size: small;
 								font-style: italic;
 								line-height: 1;
 								animation: 3s splash infinite ease-in-out;
 							}
-							span.splash::before {
-								content: open-quote;
-							}
-							span.splash::after {
-								content: close-quote;
-							}
-							span.splash:not([hidden]) ~ span.splash {
-								display: none;
-							}
+							span.splash::before { content: open-quote }
+							span.splash::after { content: close-quote }
+							span.splash:not([hidden]) ~ span.splash { display: none }
 							table {
 								width: 100%;
 								text-align: left;
@@ -261,61 +231,134 @@
 								border-collapse: separate;
 								margin: .675em 0;
 								padding: .3375em .25em;
-								background: AntiqueWhite;
 							}
 							table.dictionary caption {
 								font-weight: inherit;
 								text-decoration: none;
 							}
-							table.dictionary col {
-								width: 15%;
-							}
-							table.dictionary col:nth-child(3) {
-								width: 25%;
-							}
-							table.dictionary col:nth-child(4) {
-								width: auto;
-							}
+							table.dictionary col { width: 15% }
+							table.dictionary col:nth-child(3) { width: 25% }
+							table.dictionary col:nth-child(4) { width: auto }
 							table.dictionary tbody tr > * {
 								margin: 0;
-								border: thin SaddleBrown solid;
+								border: thin currentColor solid;
 								padding: 0 .75em;
-								background: OldLace;
 								text-align: left;
 							}
-							table.dictionary tbody tr:hover > * {
-								background: FloralWhite;
-							}
-							table.dictionary tbody tr > *:hover{
-								background: Snow;
-							}
-							table.dictionary thead {
-								text-decoration: underline;
-							}
-							td, th {
-								vertical-align: middle;
-							}
+							table.dictionary thead { text-decoration: underline }
+							td, th { vertical-align: middle }
 							th {
 								font-weight: bold;
 								text-align: center;
 							}
-							u {
-								text-decoration: none;
-							}
-							u.lang {
-								font-variant: small-caps;
-							}
+							u { text-decoration: none }
+							u.lang { font-variant: small-caps }
+							u.surname { text-transform: uppercase }
 							@keyframes splash {
-								from {
-									font-size: medium;
-								}
-								50% {
-									font-size: large;
-								}
-								to {
-									font-size: medium;
-								}
+								from { font-size: medium }
+								50% { font-size: large }
+								to { font-size: medium }
 							}
+						</html:style>
+						<html:style type="text/css" title="current" id="css-current"><value-of select="/*//html:style[@id='css-oldStyle']" /></html:style>
+						<html:style type="text/css" title="oldStyle" id="css-oldStyle">
+							@namespace "http://www.w3.org/1999/xhtml";
+							#theme-selector {
+								border-color: Grey;
+								background: DarkGrey;
+							}
+							html { background: DimGray }
+							main { border-color: SaddleBrown }
+							main > header, main > footer {
+								border-color: SaddleBrown;
+								background: AntiqueWhite;
+							}
+							main > header > table, main > footer > table { background: OldLace }
+							main > header tr:hover > *, main > footer tr:hover > * { background: FloralWhite }
+							main > header tr > *:hover, main > footer tr > *:hover { background: Snow }
+							main > article { background: OldLace }
+							main > article > header { border-color: SaddleBrown }
+							a[href] { color: SaddleBrown }
+							hr { color: SaddleBrown }
+							span.splash { color: RosyBrown }
+							table.dictionary { background: AntiqueWhite }
+							table.dictionary tbody tr > * {
+								border-color: SaddleBrown;
+								background: OldLace;
+							}
+							table.dictionary tbody tr:hover > * { background: FloralWhite }
+							table.dictionary tbody tr > *:hover { background: Snow }
+						</html:style>
+						<html:style type="text/css" title="legendary" id="css-legendary">
+							@namespace "http://www.w3.org/1999/xhtml";
+							#theme-selector {
+								border-color: #535555;
+								background: #777899;
+							}
+							html { background: #999ABC }
+							body { color: black }
+							main {
+								background: #EEEEEE;
+								border-color: #545454;
+							}
+							main > header, main > footer {
+								background: #EEE8DD;
+								border-color: #555666;
+							}
+							main > header > table, main > footer > table { background: #DDDDDD }
+							main > header tr:hover > *, main > footer tr:hover > * { background: #EBEBEB }
+							main > header tr > *:hover, main > footer tr > *:hover { background: #F6F6F6 }
+							main > article { color: #334566 }
+							main > article > header { border-color: #999BAD }
+							a[href] { color: #454545 }
+							a[href]:hover { color: #747474 }
+							dfn.orth { color: black }
+							hr { color: #999BAD }
+							p.def { color: #227002 }
+							small.note { color: #999BAD }
+							table.dictionary { background: #CCCCCC }
+							table.dictionary tbody tr > * {
+								border-color: #A0A0A0;
+								background: #DDDDDD;
+							}
+							table.dictionary tbody tr:hover > * { background: #EBEBEB }
+							table.dictionary tbody tr > *:hover { background: #F6F6F6 }
+						</html:style>
+						<html:style type="text/css" title="night" id="css-night">
+							@namespace "http://www.w3.org/1999/xhtml";
+							#theme-selector {
+								border-color: #550022;
+								background: #000000;
+							}
+							html { background: #222222 }
+							body { color: #EEEEEE }
+							main {
+								background: #131313;
+								border-color: #220000;
+							}
+							main > header, main > footer {
+								background: #330011;
+								border-color: #220000;
+							}
+							main > header > table, main > footer > table { background: #441122 }
+							main > header tr:hover > *, main > footer tr:hover > * { background: #4F1F2F }
+							main > header tr > *:hover, main > footer tr > *:hover { background: #5F2F3F }
+							main > article { color: #BB99AA }
+							main > article > header { border-color: #FFBBC3 }
+							a[href] { color: #BCBCBC }
+							a[href]:hover { color: #DEDEDE }
+							dfn.orth { color: white }
+							hr { color: #FFBBC3 }
+							p.def { color: #DD0013 }
+							small.note { color: #FFBBC3 }
+							span.splash { color: #CC3355 }
+							table.dictionary { background: #331221 }
+							table.dictionary tbody tr > * {
+								border-color: #542133;
+								background: #441122;
+							}
+							table.dictionary tbody tr:hover > * { background: #4F1F2F }
+							table.dictionary tbody tr > *:hover { background: #5F2F3F }
 						</html:style>
 					</html:head>
 				</template>
@@ -395,8 +438,31 @@
 					</html:tr>
 				</template>
 				<template match="tei:text">
-					<html:body>
+					<html:body id="text">
 						<call-template name="apply-attrs" />
+						<html:script type="text/javascript">
+							var themes = [
+								<for-each select="/*//html:style[@title and @title != 'current']">
+									["<value-of select="@id" />", "<value-of select="@title" />"],
+								</for-each>
+							];
+							var selector = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
+							selector.id = "theme-selector";
+							selector.appendChild(document.createTextNode("Theme: "));
+							var select = document.createElementNS("http://www.w3.org/1999/xhtml", "select");
+							var option;
+							for (var i = themes.length; i > 0; i--) {
+								option = document.createElementNS("http://www.w3.org/1999/xhtml", "option");
+								option.textContent = themes[themes.length - i][1];
+								option.value = themes[themes.length - i][0];
+								select.appendChild(option);
+							}
+							select.addEventListener("change", function () {
+								document.getElementById("css-current").textContent = document.getElementById(this.value).textContent;
+							}, false);
+							selector.appendChild(select);
+							document.getElementById("text").insertBefore(selector, document.getElementById("text").firstChild);
+						</html:script>
 						<html:main>
 							<apply-templates select="../tei:teiHeader" mode="body" />
 							<html:article>
@@ -434,18 +500,22 @@
 					</html:section>
 				</template>
 				<template name="apply-lang">
-					<if test="@xml:lang">
-						<attribute name="lang"><value-of select="@xml:lang" /></attribute>
-					</if>
+					<if test="@xml:lang"><attribute name="lang"><value-of select="@xml:lang" /></attribute></if>
+				</template>
+				<template name="resolve-copy">
+					<if test="@copyOf and substring(@copyOf, 1, 1)='#'"><apply-templates select="/.//*[@xml:id=substring(current()/@copyOf, 2)]" /></if>
 				</template>
 				<template name="apply-attrs">
 					<call-template name="apply-lang" />
-					<if test="@xml:id">
-						<attribute name="id"><value-of select="@xml:id" /></attribute>
-					</if>
-					<if test="@expand">
-						<attribute name="title"><value-of select="@expand" /></attribute>
-					</if>
+					<if test="@xml:id"><attribute name="id"><value-of select="@xml:id" /></attribute></if>
+					<if test="@expand"><attribute name="title"><value-of select="@expand" /></attribute></if>
+					<call-template name="resolve-copy" />
+				</template>
+				<template match="*" mode="resolve-string">
+					<choose>
+						<when test="@copyOf and substring(@copyOf, 1, 1)='#'"><value-of select="/.//*[@xml:id=substring(current()/@copyOf, 2)]" /></when>
+						<otherwise><apply-templates mode="resolve-string" /></otherwise>
+					</choose>
 				</template>
 				<template match="tei:choice[tei:abbr]">
 					<html:abbr>
@@ -504,6 +574,12 @@
 						</choose>
 					</html:header>
 				</template>
+				<template match="tei:etym">
+					<html:span class="etym">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:span>
+				</template>
 				<template match="tei:entry">
 					<html:tr class="entry">
 						<call-template name="apply-attrs" />
@@ -511,9 +587,15 @@
 						<html:td><apply-templates select="tei:form/tei:pron" /></html:td>
 						<html:td><apply-templates select="tei:etym" /></html:td>
 						<html:td>
-							<html:p><apply-templates select="tei:gramGrp/tei:pos" /> <apply-templates select="tei:def" /></html:p>
+							<html:p class="def"><apply-templates select="tei:gramGrp/tei:pos" /> <apply-templates select="tei:def" /></html:p>
 						</html:td>
 					</html:tr>
+				</template>
+				<template match="tei:forename">
+					<html:u class="forename">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:u>
 				</template>
 				<template match="tei:head">
 					<html:h2 class="head">
@@ -567,6 +649,12 @@
 						[<apply-templates />]
 					</html:small>
 				</template>
+				<template match="tei:orgName">
+					<html:u class="orgName">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:u>
+				</template>
 				<template match="tei:orth">
 					<html:dfn class="orth">
 						<call-template name="apply-attrs" />
@@ -578,6 +666,12 @@
 						<call-template name="apply-attrs" />
 						<apply-templates />
 					</html:p>
+				</template>
+				<template match="tei:persName">
+					<html:u class="persName">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:u>
 				</template>
 				<template match="tei:pos">
 					<html:b class="pos">
@@ -631,6 +725,12 @@
 						<apply-templates />
 					</html:span>
 				</template>
+				<template match="tei:surname">
+					<html:u class="surname">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:u>
+				</template>
 				<template match="tei:title">
 					<html:cite class="title">
 						<call-template name="apply-attrs" />
@@ -659,8 +759,10 @@
 					<if test="tei:expan">(<apply-templates select="tei:expan" />)</if>
 				</template>
 				<template match="*">
-					<call-template name="apply-lang" />
-					<apply-templates />
+					<choose>
+						<when test="@copyOf"><call-template name="resolve-copy" /></when>
+						<otherwise><apply-templates /></otherwise>
+					</choose>
 				</template>
 			</stylesheet>
 		</xenoData>
@@ -668,6 +770,11 @@
 		<!--  REVISION DESCRIPTIONS  -->
 
 		<revisionDesc>
+			<change when="2017-10-07">
+				Improved internal markup to be more semantic and reduce duplication.
+				Added themes for browsers which support them.
+				<note type="version">2.03</note>
+			</change>
 			<change when="2017-10-07">
 				Fixed centering of table header elements.
 				<note type="version">2.02</note>
@@ -699,13 +806,13 @@
 
 			<titlePage>
 				<docTitle>
-					<titlePart type="main">Eho</titlePart>
-					<titlePart type="sub">Documentation and Dictionary</titlePart>
+					<titlePart type="main" copyOf="#title-main" />
+					<titlePart type="sub" copyOf="#title-sub" />
 				</docTitle>
 				<byline>
-					<docAuthor>The LANGDEV Project</docAuthor>
+					<docAuthor copyOf="#author-name"></docAuthor>
 				</byline>
-				<docEdition>Version 2, Draft 02</docEdition>
+				<docEdition copyOf="#version-no" />
 				<docDate when="2017-10-07">07 October 2017</docDate>
 				<epigraph>
 					<p>
@@ -733,6 +840,8 @@
 						<seg type="splash">Square!</seg>
 						<seg type="splash">Generational!</seg>
 						<seg type="splash">Generated!</seg>
+						<seg type="splash">Old-style!</seg>
+						<seg type="splash">Olde stile!</seg>
 					</p>
 				</epigraph>
 			</titlePage>
