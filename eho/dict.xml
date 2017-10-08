@@ -15,12 +15,12 @@
 				<principal><persName xml:id="go-sh"><forename>Gô</forename> <surname>SHOEMAKE</surname></persName></principal>
 			</titleStmt>
 			<editionStmt>
-				<edition xml:id="version-no">Version 2, Draft 03</edition>
+				<edition xml:id="version-no">Version 2, Draft 04</edition>
 			</editionStmt>
 			<publicationStmt>
 				<publisher><orgName copyOf="#langdev-project" /></publisher>
 				<date>2017</date>
-				<idno type="URI">tag:langdev.xyz,2017:jsv:eho:dict:2:03</idno>
+				<idno type="URI">tag:langdev.xyz,2017:jsv:eho:dict:2:04</idno>
 				<availability status="free">
 					<licence target="https://creativecommons.org/publicdomain/zero/1.0/">Released into the public domain under a <title>CC0 1.0 Universal License</title>.</licence>
 				</availability>
@@ -47,11 +47,11 @@
 				<namespace name="http://www.tei-c.org/ns/1.0">
 					<tagUsage gi="div" occurs="5">Used to separate the different versions of the <lang>Eho</lang> language, and also to contain preface material.</tagUsage>
 					<tagUsage gi="entry" occurs="30">Used to mark dictionary entries.</tagUsage>
-					<tagUsage gi="ident">The <val>BCP47</val> <att>type</att> marks an <name type="org"><choice><abbr>IETF</abbr><expan>Internet Engineering Task Force</expan></choice></name> language tag, as defined by <ref target="https://tools.ietf.org/rfc/bcp/bcp47.txt" mediaType="text/plain"><title level="m"><choice><abbr>BCP</abbr><expan>Best Current Practices</expan></choice> 47</title></ref>.</tagUsage>
+					<tagUsage gi="ident">The <val>BCP47</val> <att>type</att> marks an <orgName><choice><abbr>IETF</abbr><expan>Internet Engineering Task Force</expan></choice></orgName> language tag, as defined by <ref target="https://tools.ietf.org/rfc/bcp/bcp47.txt" mediaType="text/plain"><title level="m"><choice><abbr>BCP</abbr><expan>Best Current Practices</expan></choice> 47</title></ref>.</tagUsage>
 					<tagUsage gi="index">Marks keywords for entry indexing and searching.</tagUsage>
 					<tagUsage gi="name">The <val>org</val> <att>type</att> is used to mark an organization.</tagUsage>
 					<tagUsage gi="note">The <val>version</val> <att>type</att> is used to denote versions in the list of changes.</tagUsage>
-					<tagUsage gi="rs">The <val>unicode</val> <att>type</att> is used to reference a <name type="org">Unicode</name> character.</tagUsage>
+					<tagUsage gi="rs">The <val>unicode</val> <att>type</att> is used to reference a <orgName>Unicode</orgName> character.</tagUsage>
 					<tagUsage gi="seg">
 						The <val>splash</val> <att>type</att> refers to an optional splash quote.
 						A splash with <att>subtype</att> <val>default</val> identifies the default splash; all others are alternates.
@@ -156,6 +156,15 @@
 								font-weight: bold;
 								text-decoration: underline;
 							}
+							dd { margin: 0 0 0 1.5em }
+							dl {
+								margin: 1.35em 0;
+								padding: 0 1.5em;
+							}
+							dt {
+								font-weight: bold;
+								text-decoration: underline;
+							}
 							div.epigraph {
 								display: block;
 								position: relative;
@@ -191,6 +200,8 @@
 								text-align: center;
 							}
 							hr::after { content: "⁂" }
+							i.gloss { font-style: inherit }
+							i.orth { font-style: inherit }
 							i.pron {
 								font-size: smaller;
 								font-style: inherit;
@@ -260,8 +271,8 @@
 								to { font-size: medium }
 							}
 						</html:style>
-						<html:style type="text/css" title="current" id="css-current"><value-of select="/*//html:style[@id='css-oldStyle']" /></html:style>
-						<html:style type="text/css" title="oldStyle" id="css-oldStyle">
+						<html:style type="text/css" title="current" id="css-current"><value-of select="/*//html:style[@title][2]" /></html:style>
+						<html:style type="text/css" title="OldStyle" id="css-oldStyle">
 							@namespace "http://www.w3.org/1999/xhtml";
 							#theme-selector {
 								border-color: Grey;
@@ -280,6 +291,7 @@
 							main > article > header { border-color: SaddleBrown }
 							a[href] { color: SaddleBrown }
 							hr { color: SaddleBrown }
+							i.gloss { color: RosyBrown }
 							span.splash { color: RosyBrown }
 							table.dictionary { background: AntiqueWhite }
 							table.dictionary tbody tr > * {
@@ -289,7 +301,54 @@
 							table.dictionary tbody tr:hover > * { background: FloralWhite }
 							table.dictionary tbody tr > *:hover { background: Snow }
 						</html:style>
-						<html:style type="text/css" title="legendary" id="css-legendary">
+						<html:style type="text/css" title="TE" id="css-TE">
+							@namespace "http://www.w3.org/1999/xhtml";
+							#theme-selector {
+								border-color: #9F9F9F;
+								background: #ECECEC;
+							}
+							html { background: #EDEDED }
+							main {
+								background: white;
+								border-color: #B8B8B8;
+							}
+							main > header, main > footer {
+								border-color: #AAAAAA;
+								background: #ECECEC;
+							}
+							main > header tr > *, main > footer tr > * {
+								border-color: #B0B0B0;
+								background: white;
+							}
+							a[href] { color: inherit }
+							hr { color: black }
+							table.dictionary tbody tr > * { border-color: #515151 }
+						</html:style>
+						<html:style type="text/css" title="RedBook" id="css-RedBook">
+							@namespace "http://www.w3.org/1999/xhtml";
+							#theme-selector {
+								border-color: #F79F9F;
+								background: white;
+							}
+							html { background: #B21A2A }
+							main {
+								background: white;
+								border-color: #F77F7F;
+							}
+							main > header, main > footer {
+								border-color: #6FCFEF;
+								color: #3F3F3F;
+							}
+							main > header tr > *, main > footer tr > * { border-color: #6FCFEF }
+							main > article > header { border-color: #6FCFEF }
+							a[href] { color: #2028B8 }
+							dfn { color: #0FAF0F }
+							hr { color: #3F3F3F }
+							p.def { color: #FF0000 }
+							small.note { color: #FF0000 }
+							span.splash { color: #2028B8 }
+						</html:style>
+						<html:style type="text/css" title="Legendary" id="css-legendary">
 							@namespace "http://www.w3.org/1999/xhtml";
 							#theme-selector {
 								border-color: #535555;
@@ -312,8 +371,9 @@
 							main > article > header { border-color: #999BAD }
 							a[href] { color: #454545 }
 							a[href]:hover { color: #747474 }
-							dfn.orth { color: black }
+							dfn { color: black }
 							hr { color: #999BAD }
+							i.gloss { color: #999BAD }
 							p.def { color: #227002 }
 							small.note { color: #999BAD }
 							table.dictionary { background: #CCCCCC }
@@ -324,7 +384,7 @@
 							table.dictionary tbody tr:hover > * { background: #EBEBEB }
 							table.dictionary tbody tr > *:hover { background: #F6F6F6 }
 						</html:style>
-						<html:style type="text/css" title="night" id="css-night">
+						<html:style type="text/css" title="Night" id="css-night">
 							@namespace "http://www.w3.org/1999/xhtml";
 							#theme-selector {
 								border-color: #550022;
@@ -347,8 +407,9 @@
 							main > article > header { border-color: #FFBBC3 }
 							a[href] { color: #BCBCBC }
 							a[href]:hover { color: #DEDEDE }
-							dfn.orth { color: white }
+							dfn { color: white }
 							hr { color: #FFBBC3 }
+							i.gloss { color: #FFBBC3 }
 							p.def { color: #DD0013 }
 							small.note { color: #FFBBC3 }
 							span.splash { color: #CC3355 }
@@ -417,9 +478,9 @@
 				<template match="tei:teiHeader" mode="foot">
 					<html:footer>
 						<html:p>
-							Written in <html:a href="http://www.tei-c.org/"><html:abbr title="Text Encoding Initiative">TEI</html:abbr></html:a> and styled as <html:abbr title="HyperText Markup Language">HTML</html:abbr> using <html:abbr title="eXtensible Stylesheet Language Transformations">XSLT</html:abbr>+<html:abbr title="Cascading Style Sheets">CSS</html:abbr>.
+							<text>Written in </text><html:a href="http://www.tei-c.org/"><html:abbr title="Text Encoding Initiative">TEI</html:abbr></html:a> and styled as <html:abbr title="HyperText Markup Language">HTML</html:abbr> using <html:abbr title="eXtensible Stylesheet Language Transformations">XSLT</html:abbr>+<html:abbr title="Cascading Style Sheets">CSS</html:abbr><text>.</text>
 							<html:br />
-							☙ <html:a href="http://langdev.xyz/">The LANGDEV Project</html:a> ❧
+							<text>☙ </text><html:a href="http://langdev.xyz/">The LANGDEV Project</html:a><text> ❧</text>
 						</html:p>
 					</html:footer>
 				</template>
@@ -519,19 +580,19 @@
 				</template>
 				<template match="tei:choice[tei:abbr]">
 					<html:abbr>
-						<call-template name="apply-attrs" />
 						<if test="tei:expan">
 							<attribute name="title"><apply-templates select="tei:expan" /></attribute>
 						</if>
+						<call-template name="apply-attrs" />
 						<apply-templates select="tei:abbr" />
 					</html:abbr>
 				</template>
 				<template match="tei:div">
 					<html:section>
-						<call-template name="apply-attrs" />
 						<if test="@type">
 							<attribute name="class"><value-of select="@type" /></attribute>
 						</if>
+						<call-template name="apply-attrs" />
 						<apply-templates />
 					</html:section>
 				</template>
@@ -556,7 +617,7 @@
 				<template match="tei:docDate">
 					<html:p>
 						<call-template name="apply-attrs" />
-						Last updated:
+						<text>Last updated: </text>
 						<html:time>
 							<if test="@when">
 								<attribute name="datetime"><value-of select="@when" /></attribute>
@@ -583,8 +644,16 @@
 				<template match="tei:entry">
 					<html:tr class="entry">
 						<call-template name="apply-attrs" />
-						<html:th><apply-templates select="tei:form/tei:orth" /></html:th>
-						<html:td><apply-templates select="tei:form/tei:pron" /></html:td>
+						<html:th>
+							<for-each select="tei:form">
+								<html:dfn><apply-templates select="tei:orth" /></html:dfn>
+							</for-each>
+						</html:th>
+						<html:td>
+							<for-each select="tei:form">
+								<apply-templates select="tei:pron" />
+							</for-each>
+						</html:td>
 						<html:td><apply-templates select="tei:etym" /></html:td>
 						<html:td>
 							<html:p class="def"><apply-templates select="tei:gramGrp/tei:pos" /> <apply-templates select="tei:def" /></html:p>
@@ -597,6 +666,12 @@
 						<apply-templates />
 					</html:u>
 				</template>
+				<template match="tei:gloss">
+					<html:i class="gloss">
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:i>
+				</template>
 				<template match="tei:head">
 					<html:h2 class="head">
 						<call-template name="apply-attrs" />
@@ -605,8 +680,8 @@
 				</template>
 				<template match="tei:ident">
 					<html:code>
-						<call-template name="apply-attrs" />
 						<attribute name="class">ident <value-of select="@type" /></attribute>
+						<call-template name="apply-attrs" />
 						<apply-templates />
 					</html:code>
 				</template>
@@ -622,12 +697,33 @@
 							<when test="local-name() = 'title'">
 								<html:a>
 									<attribute name="href"><value-of select="../@target" /></attribute>
+									<call-template name="apply-attrs" />
 									<html:cite class="title"><value-of select="." /></html:cite>
 								</html:a>
 							</when>
 							<otherwise><apply-templates select="." /></otherwise>
 						</choose>
 					</for-each>
+				</template>
+				<template match="tei:list[@type='gloss']">
+					<html:dl class="list gloss">
+						<for-each select="*">
+							<choose>
+								<when test="local-name() = 'label'">
+									<html:dt>
+										<call-template name="apply-attrs" />
+										<apply-templates />
+									</html:dt>
+								</when>
+								<when test="local-name() = 'item'">
+									<html:dd>
+										<call-template name="apply-attrs" />
+										<apply-templates />
+									</html:dd>
+								</when>
+							</choose>
+						</for-each>
+					</html:dl>
 				</template>
 				<template match="tei:mentioned">
 					<html:i class="mentioned">
@@ -637,15 +733,15 @@
 				</template>
 				<template match="tei:name">
 					<html:u>
-						<call-template name="apply-attrs" />
 						<attribute name="class">name <value-of select="@type" /></attribute>
+						<call-template name="apply-attrs" />
 						<apply-templates />
 					</html:u>
 				</template>
 				<template match="tei:note">
 					<html:small>
-						<call-template name="apply-attrs" />
 						<attribute name="class">note <value-of select="@type" /></attribute>
+						<call-template name="apply-attrs" />
 						[<apply-templates />]
 					</html:small>
 				</template>
@@ -656,10 +752,13 @@
 					</html:u>
 				</template>
 				<template match="tei:orth">
-					<html:dfn class="orth">
+					<if test="preceding-sibling::tei:orth or ../preceding-sibling::tei:form/tei:orth">
+						<text> / </text>
+					</if>
+					<html:i class="orth">
 						<call-template name="apply-attrs" />
 						<apply-templates />
-					</html:dfn>
+					</html:i>
 				</template>
 				<template match="tei:p">
 					<html:p>
@@ -676,48 +775,62 @@
 				<template match="tei:pos">
 					<html:b class="pos">
 						<call-template name="apply-attrs" />
-						<apply-templates />.
+						<apply-templates /><text>.</text>
 					</html:b>
+					<text> </text>
 				</template>
 				<template match="tei:pron">
+					<if test="preceding-sibling::tei:pron or ../preceding-sibling::tei:form/tei:pron">
+						<text>, </text>
+					</if>
 					<html:i class="pron">
 						<call-template name="apply-attrs" />
-						(<apply-templates />)
+						<apply-templates />
 					</html:i>
 				</template>
 				<template match="tei:ptr">
 					<html:a class="ptr">
-						<call-template name="apply-attrs" />
 						<if test="@target">
 							<attribute name="href"><value-of select="@target" /></attribute>
 						</if>
 						<if test="@mimeType">
 							<attribute name="type"><value-of select="@mimeType" /></attribute>
 						</if>
-						<value-of select="@target" />
+						<call-template name="apply-attrs" />
+						<choose>
+							<when test="@target and substring(@target, 1, 1)='#' and /.//tei:entry[@xml:id=substring(current()/@target, 2)]"><apply-templates select="/.//tei:entry[@xml:id=substring(current()/@target, 2)]/tei:form/tei:orth" /></when>
+							<otherwise><value-of select="@target" /></otherwise>
+						</choose>
 					</html:a>
 				</template>
 				<template match="tei:ref">
 					<html:a class="ref">
-						<call-template name="apply-attrs" />
 						<if test="@target">
 							<attribute name="href"><value-of select="@target" /></attribute>
 						</if>
 						<if test="@mimeType">
 							<attribute name="type"><value-of select="@mimeType" /></attribute>
 						</if>
+						<call-template name="apply-attrs" />
 						<apply-templates />
 					</html:a>
 				</template>
 				<template match="tei:rs">
 					<html:u>
-						<call-template name="apply-attrs" />
 						<attribute name="class">rs <value-of select="@type" /></attribute>
+						<call-template name="apply-attrs" />
 						<apply-templates />
 					</html:u>
 				</template>
+				<template match="tei:seg">
+					<html:span>
+						<attribute name="class">seg <value-of select="@type" /></attribute>
+						<call-template name="apply-attrs" />
+						<apply-templates />
+					</html:span>
+				</template>
 				<template match="tei:seg[@type='splash']">
-					<html:span class="splash">
+					<html:span class="seg splash">
 						<call-template name="apply-attrs" />
 						<if test="@subtype != 'default'">
 							<attribute name="hidden">hidden</attribute>
@@ -747,8 +860,8 @@
 						</when>
 						<otherwise>
 							<html:p>
-								<call-template name="apply-attrs" />
 								<attribute name="class">titlePart <value-of select="@type" /></attribute>
+								<call-template name="apply-attrs" />
 								<apply-templates />
 							</html:p>
 						</otherwise>
@@ -756,7 +869,7 @@
 				</template>
 				<template match="tei:expan/tei:choice[tei:abbr]">
 					<value-of select="tei:abbr" />
-					<if test="tei:expan">(<apply-templates select="tei:expan" />)</if>
+					<if test="tei:expan"><text>(</text><apply-templates select="tei:expan" /><text>)</text></if>
 				</template>
 				<template match="*">
 					<choose>
@@ -770,6 +883,11 @@
 		<!--  REVISION DESCRIPTIONS  -->
 
 		<revisionDesc>
+			<change when="2017-10-08">
+				Improved internal markup to allow for more easily directly referencing entries inside of etymologies.
+				Added themes.
+				<note type="version">2.04</note>
+			</change>
 			<change when="2017-10-07">
 				Improved internal markup to be more semantic and reduce duplication.
 				Added themes for browsers which support them.
@@ -813,7 +931,7 @@
 					<docAuthor copyOf="#author-name"></docAuthor>
 				</byline>
 				<docEdition copyOf="#version-no" />
-				<docDate when="2017-10-07">07 October 2017</docDate>
+				<docDate when="2017-10-08">08 October 2017</docDate>
 				<epigraph>
 					<p>
 						<seg type="splash" subtype="default">Default text!</seg>
