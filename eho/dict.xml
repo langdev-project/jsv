@@ -15,12 +15,12 @@
 				<principal><persName xml:id="go-sh"><forename>Gô</forename> <surname>SHOEMAKE</surname></persName></principal>
 			</titleStmt>
 			<editionStmt>
-				<edition xml:id="version-no">Version 2, Draft 04</edition>
+				<edition xml:id="version-no">Version 2, Draft 05</edition>
 			</editionStmt>
 			<publicationStmt>
 				<publisher><orgName copyOf="#langdev-project" /></publisher>
 				<date>2017</date>
-				<idno type="URI">tag:langdev.xyz,2017:jsv:eho:dict:2:04</idno>
+				<idno type="URI">tag:langdev.xyz,2017:jsv:eho:dict:2:05</idno>
 				<availability status="free">
 					<licence target="https://creativecommons.org/publicdomain/zero/1.0/">Released into the public domain under a <title>CC0 1.0 Universal License</title>.</licence>
 				</availability>
@@ -48,8 +48,6 @@
 					<tagUsage gi="div" occurs="5">Used to separate the different versions of the <lang>Eho</lang> language, and also to contain preface material.</tagUsage>
 					<tagUsage gi="entry" occurs="30">Used to mark dictionary entries.</tagUsage>
 					<tagUsage gi="ident">The <val>BCP47</val> <att>type</att> marks an <orgName><choice><abbr>IETF</abbr><expan>Internet Engineering Task Force</expan></choice></orgName> language tag, as defined by <ref target="https://tools.ietf.org/rfc/bcp/bcp47.txt" mediaType="text/plain"><title level="m"><choice><abbr>BCP</abbr><expan>Best Current Practices</expan></choice> 47</title></ref>.</tagUsage>
-					<tagUsage gi="index">Marks keywords for entry indexing and searching.</tagUsage>
-					<tagUsage gi="name">The <val>org</val> <att>type</att> is used to mark an organization.</tagUsage>
 					<tagUsage gi="note">The <val>version</val> <att>type</att> is used to denote versions in the list of changes.</tagUsage>
 					<tagUsage gi="rs">The <val>unicode</val> <att>type</att> is used to reference a <orgName>Unicode</orgName> character.</tagUsage>
 					<tagUsage gi="seg">
@@ -254,6 +252,7 @@
 								margin: 0;
 								border: thin currentColor solid;
 								padding: 0 .75em;
+								font-weight: inherit;
 								text-align: left;
 							}
 							table.dictionary thead { text-decoration: underline }
@@ -341,12 +340,12 @@
 							}
 							main > header tr > *, main > footer tr > * { border-color: #6FCFEF }
 							main > article > header { border-color: #6FCFEF }
-							a[href] { color: #2028B8 }
-							dfn { color: #0FAF0F }
+							a[href] { color: #0FAF0F }
+							dfn { color: #2028B8 }
 							hr { color: #3F3F3F }
 							p.def { color: #FF0000 }
 							small.note { color: #FF0000 }
-							span.splash { color: #2028B8 }
+							span.splash { color: #0FAF0F }
 						</html:style>
 						<html:style type="text/css" title="Legendary" id="css-legendary">
 							@namespace "http://www.w3.org/1999/xhtml";
@@ -883,6 +882,12 @@
 		<!--  REVISION DESCRIPTIONS  -->
 
 		<revisionDesc>
+			<change when="2017-10-23">
+				Minor markup improvements.
+				Language version numbers are now considered part of the language name.
+				Removed indexing as it provided no useful functionality.
+				<note type="version">2.05</note>
+			</change>
 			<change when="2017-10-08">
 				Improved internal markup to allow for more easily directly referencing entries inside of etymologies.
 				Added themes.
@@ -931,7 +936,7 @@
 					<docAuthor copyOf="#author-name"></docAuthor>
 				</byline>
 				<docEdition copyOf="#version-no" />
-				<docDate when="2017-10-08">08 October 2017</docDate>
+				<docDate when="2017-10-23">23 October 2017</docDate>
 				<epigraph>
 					<p>
 						<seg type="splash" subtype="default">Default text!</seg>
@@ -970,11 +975,11 @@
 				<p>
 					<lang>Eho</lang> is an early culture and language in the <lang>Jastu-Sevensi</lang> language family.
 					<lang>Eho</lang> had the smallest starting lexicon of the <lang>Jastu-Sevensi</lang> languages, and so developed at the slowest rate.
-					The <name type="org">Unicode</name> character <rs type="unicode">U+25A1 □ WHITE SQUARE</rs> has traditionally been used as a shorthand for <mentioned><lang>Eho</lang></mentioned>.
+					The <orgName>Unicode</orgName> character <rs type="unicode">U+25A1 □ WHITE SQUARE</rs> has traditionally been used as a shorthand for <mentioned><lang>Eho</lang></mentioned>.
 				</p>
 				<p>
 					The words below are grouped into four generations based on their approximate times of origin.
-					The earliest of these are categorized as <mentioned><lang expand="Eho">□</lang>1</mentioned> and the latest as <mentioned><lang expand="Eho">□</lang>4</mentioned>.
+					The earliest of these are categorized as <mentioned><lang expand="Eho I">□1</lang></mentioned> and the latest as <mentioned><lang expand="Eho IV">□4</lang></mentioned>.
 					The <lang>Eho</lang> language had very little influence on later Jastu-Sevensi languages and so the size of this dictionary is quite small.
 				</p>
 				<p>
@@ -999,14 +1004,8 @@
 			<!--  EHO I  -->
 
 			<div xml:id="dict.0001">
-				<head><lang expand="Eho">□</lang>1</head>
+				<head><lang expand="Eho">□1</lang></head>
 				<entry xml:id="dict.0001.o">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0001"><lang expand="Eho">□</lang>1</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0001">o</orth>
 						<pron>ō</pron>
@@ -1017,12 +1016,6 @@
 					<def>come/go</def>
 				</entry>
 				<entry xml:id="dict.0001.aht">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0001"><lang expand="Eho">□</lang>1</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0001">aht</orth>
 						<pron>äht</pron>
@@ -1037,14 +1030,8 @@
 			<!--  EHO II  -->
 
 			<div xml:id="dict.0002">
-				<head><lang expand="Eho">□</lang>2</head>
+				<head><lang expand="Eho II">□2</lang></head>
 				<entry xml:id="dict.0002.ba">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0002"><lang expand="Eho">□</lang>2</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0002">ba</orth>
 						<pron>bä</pron>
@@ -1055,68 +1042,44 @@
 					<def>do</def>
 				</entry>
 				<entry xml:id="dict.0002.o">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0002"><lang expand="Eho">□</lang>2</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0002">o</orth>
 						<pron>ō</pron>
 					</form>
-					<etym><ref target="#0001.o"><lang expand="Eho">□</lang>1</ref></etym>
+					<etym><ref target="#0001.o"><lang expand="Eho I">□1</lang></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
 					<def>go</def>
 				</entry>
 				<entry xml:id="dict.0002.uw">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0002"><lang expand="Eho">□</lang>2</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0002">uw</orth>
 						<pron>o͡o</pron>
 					</form>
-					<etym><ref target="#0001.o"><lang expand="Eho">□</lang>1 <mentioned xml:lang="art-Latn-x-eho-0001">o</mentioned></ref></etym>
+					<etym><ref target="#0001.o"><lang expand="Eho I">□1</lang> <mentioned xml:lang="art-Latn-x-eho-0001">o</mentioned></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
 					<def>come</def>
 				</entry>
 				<entry xml:id="dict.0002.ah">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0002"><lang expand="Eho">□</lang>2</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0002">ah</orth>
 						<pron>äh</pron>
 					</form>
-					<etym><ref target="#0001.aht"><lang expand="Eho">□</lang>1 <mentioned xml:lang="art-Latn-x-eho-0001">aht</mentioned></ref></etym>
+					<etym><ref target="#0001.aht"><lang expand="Eho I">□1</lang> <mentioned xml:lang="art-Latn-x-eho-0001">aht</mentioned></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
 					<def>wait</def>
 				</entry>
 				<entry xml:id="dict.0002.aat">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0002"><lang expand="Eho">□</lang>2</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0002">aat</orth>
 						<pron>ät</pron>
 					</form>
-					<etym><ref target="#0001.aht"><lang expand="Eho">□</lang>1 <mentioned xml:lang="art-Latn-x-eho-0001">aht</mentioned></ref></etym>
+					<etym><ref target="#0001.aht"><lang expand="Eho I">□1</lang> <mentioned xml:lang="art-Latn-x-eho-0001">aht</mentioned></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
@@ -1127,14 +1090,8 @@
 			<!--  EHO III  -->
 
 			<div xml:id="dict.0003">
-				<head><lang expand="Eho">□</lang>3</head>
+				<head><lang expand="Eho III">□3</lang></head>
 				<entry xml:id="dict.0003.eh">
-					<index indexName="CLASS">
-						<term>adj</term>
-						<index>
-							<term sortKey="dict.0003"><lang expand="Eho">□</lang>3</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0003">eh</orth>
 						<pron>ā</pron>
@@ -1145,29 +1102,17 @@
 					<def>good</def>
 				</entry>
 				<entry xml:id="dict.0003.ba">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0003"><lang expand="Eho">□</lang>3</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0003">ba</orth>
 						<pron>bä</pron>
 					</form>
-					<etym><ref target="#0002.ba"><lang expand="Eho">□</lang>2</ref></etym>
+					<etym><ref target="#0002.ba"><lang expand="Eho II">□2</lang></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
 					<def>do</def>
 				</entry>
 				<entry xml:id="dict.0003.oet">
-					<index indexName="CLASS">
-						<term>adv</term>
-						<index>
-							<term sortKey="dict.0003"><lang expand="Eho">□</lang>3</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0003">oet</orth>
 						<pron>œt</pron>
@@ -1178,12 +1123,6 @@
 					<def>quickly</def>
 				</entry>
 				<entry xml:id="dict.0003.ahn">
-					<index indexName="CLASS">
-						<term>adv</term>
-						<index>
-							<term sortKey="dict.0003"><lang expand="Eho">□</lang>3</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0003">ahn</orth>
 						<pron>än</pron>
@@ -1194,68 +1133,44 @@
 					<def>carefully, cautiously</def>
 				</entry>
 				<entry xml:id="dict.0003.o">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0003"><lang expand="Eho">□</lang>3</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0003">o</orth>
 						<pron>ō</pron>
 					</form>
-					<etym><ref target="#0001.o"><lang expand="Eho">□</lang>1</ref></etym>
+					<etym><ref target="#0001.o"><lang expand="Eho I">□1</lang></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
 					<def>go</def>
 				</entry>
 				<entry xml:id="dict.0003.uw">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0003"><lang expand="Eho">□</lang>3</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0003">uw</orth>
 						<pron>o͡o</pron>
 					</form>
-					<etym><ref target="#0001.o"><lang expand="Eho">□</lang>1 <mentioned xml:lang="art-Latn-x-eho-0001">o</mentioned></ref></etym>
+					<etym><ref target="#0001.o"><lang expand="Eho I">□1</lang> <mentioned xml:lang="art-Latn-x-eho-0001">o</mentioned></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
 					<def>come</def>
 				</entry>
 				<entry xml:id="dict.0003.ah">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0003"><lang expand="Eho">□</lang>3</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0003">ah</orth>
 						<pron>äh</pron>
 					</form>
-					<etym><ref target="#0001.aht"><lang expand="Eho">□</lang>1 <mentioned xml:lang="art-Latn-x-eho-0001">aht</mentioned></ref></etym>
+					<etym><ref target="#0001.aht"><lang expand="Eho I">□1</lang> <mentioned xml:lang="art-Latn-x-eho-0001">aht</mentioned></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
 					<def>wait</def>
 				</entry>
 				<entry xml:id="dict.0003.aat">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0003"><lang expand="Eho">□</lang>3</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0003">aat</orth>
 						<pron>ät</pron>
 					</form>
-					<etym><ref target="#0001.aht"><lang expand="Eho">□</lang>1 <mentioned xml:lang="art-Latn-x-eho-0001">aht</mentioned></ref></etym>
+					<etym><ref target="#0001.aht"><lang expand="Eho I">□1</lang> <mentioned xml:lang="art-Latn-x-eho-0001">aht</mentioned></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
@@ -1266,14 +1181,8 @@
 			<!--  EHO IV  -->
 
 			<div xml:id="dict.0004">
-				<head><lang expand="Eho">□</lang>4</head>
+				<head><lang expand="Eho IV">□4</lang></head>
 				<entry xml:id="dict.0004.ay">
-					<index indexName="CLASS">
-						<term>adj</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">ay</orth>
 						<pron>ā</pron>
@@ -1284,12 +1193,6 @@
 					<def>good</def>
 				</entry>
 				<entry xml:id="dict.0004.ra">
-					<index indexName="CLASS">
-						<term>adj</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">ra</orth>
 						<pron>rä</pron>
@@ -1300,29 +1203,17 @@
 					<def>bad</def>
 				</entry>
 				<entry xml:id="dict.0004.æt">
-					<index indexName="CLASS">
-						<term>pron</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">æt</orth>
 						<pron>āt</pron>
 					</form>
-					<etym><ref target="#0003.eh"><lang expand="Eho">□</lang>3 <mentioned xml:lang="art-Latn-x-eho-0003">eh</mentioned></ref></etym>
+					<etym><ref target="#0003.eh"><lang expand="Eho III">□3</lang> <mentioned xml:lang="art-Latn-x-eho-0003">eh</mentioned></ref></etym>
 					<gramGrp>
 						<pos expand="pronoun">pron</pos>
 					</gramGrp>
 					<def>this</def>
 				</entry>
 				<entry xml:id="dict.0004.ko">
-					<index indexName="CLASS">
-						<term>pron</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">ko</orth>
 						<pron>kō</pron>
@@ -1333,12 +1224,6 @@
 					<def>you</def>
 				</entry>
 				<entry xml:id="dict.0004.ka">
-					<index indexName="CLASS">
-						<term>pron</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">ka</orth>
 						<pron>kä</pron>
@@ -1349,12 +1234,6 @@
 					<def>me</def>
 				</entry>
 				<entry xml:id="dict.0004.tay">
-					<index indexName="CLASS">
-						<term>pron</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">tay</orth>
 						<pron>tā</pron>
@@ -1365,12 +1244,6 @@
 					<def>they</def>
 				</entry>
 				<entry xml:id="dict.0004.tih">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">tih</orth>
 						<pron>tih</pron>
@@ -1381,131 +1254,83 @@
 					<def>is</def>
 				</entry>
 				<entry xml:id="dict.0004.ba">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">ba</orth>
 						<pron>bä</pron>
 					</form>
-					<etym><ref target="#0002.ba"><lang expand="Eho">□</lang>2</ref></etym>
+					<etym><ref target="#0002.ba"><lang expand="Eho II">□2</lang></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
 					<def>do</def>
 				</entry>
 				<entry xml:id="dict.0004.o">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">o</orth>
 						<pron>ō</pron>
 					</form>
-					<etym><ref target="#0001.o"><lang expand="Eho">□</lang>1</ref></etym>
+					<etym><ref target="#0001.o"><lang expand="Eho I">□1</lang></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
 					<def>go</def>
 				</entry>
 				<entry xml:id="dict.0004.uw">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">uw</orth>
 						<pron>o͡o</pron>
 					</form>
-					<etym><ref target="#0001.uw"><lang expand="Eho">□</lang>1</ref></etym>
+					<etym><ref target="#0001.uw"><lang expand="Eho I">□1</lang></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
 					<def>come</def>
 				</entry>
 				<entry xml:id="dict.0004.ah">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">ah</orth>
 						<pron>äh</pron>
 					</form>
-					<etym><ref target="#0001.ah"><lang expand="Eho">□</lang>1</ref></etym>
+					<etym><ref target="#0001.ah"><lang expand="Eho I">□1</lang></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
 					<def>wait</def>
 				</entry>
 				<entry xml:id="dict.0004.ahnt">
-					<index indexName="CLASS">
-						<term>v</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">ahnt</orth>
 						<pron>ähnt</pron>
 					</form>
-					<etym><ref target="#0003.aat"><lang expand="Eho">□</lang>3 <mentioned xml:lang="art-Latn-x-eho-0003">aat</mentioned></ref></etym>
+					<etym><ref target="#0003.aat"><lang expand="Eho III">□3</lang> <mentioned xml:lang="art-Latn-x-eho-0003">aat</mentioned></ref></etym>
 					<gramGrp>
 						<pos expand="verb">v</pos>
 					</gramGrp>
 					<def>stay/stop</def>
 				</entry>
 				<entry xml:id="dict.0004.oet">
-					<index indexName="CLASS">
-						<term>adv</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">oet</orth>
 						<pron>œt</pron>
 					</form>
-					<etym><ref target="#0003.oet"><lang expand="Eho">□</lang>3</ref></etym>
+					<etym><ref target="#0003.oet"><lang expand="Eho III">□3</lang></ref></etym>
 					<gramGrp>
 						<pos expand="adv">adv</pos>
 					</gramGrp>
 					<def>quickly</def>
 				</entry>
 				<entry xml:id="dict.0004.on">
-					<index indexName="CLASS">
-						<term>adv</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">on</orth>
 						<pron>on</pron>
 					</form>
-					<etym><ref target="#0003.ahn"><lang expand="Eho">□</lang>3 <mentioned xml:lang="art-Latn-x-eho-0003">ahn</mentioned></ref></etym>
+					<etym><ref target="#0003.ahn"><lang expand="Eho III">□3</lang> <mentioned xml:lang="art-Latn-x-eho-0003">ahn</mentioned></ref></etym>
 					<gramGrp>
 						<pos expand="adv">adv</pos>
 					</gramGrp>
 					<def>carefully, cautiously</def>
 				</entry>
 				<entry xml:id="dict.0004.rayd">
-					<index indexName="CLASS">
-						<term>adv</term>
-						<index>
-							<term sortKey="dict.0004"><lang expand="Eho">□</lang>4</term>
-						</index>
-					</index>
 					<form>
 						<orth xml:lang="art-Latn-x-eho-0004">rayd</orth>
 						<pron>rād</pron>

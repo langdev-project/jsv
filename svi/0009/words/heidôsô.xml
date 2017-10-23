@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<word xmlns="about:lexisml?word" xmlns:html="http://www.w3.org/1999/xhtml" xml:lang="art-x-jsv-0009">
+<word xmlns="about:lexisml?word" xmlns:html="http://www.w3.org/1999/xhtml" xml:lang="art-x-osv-0009">
     <lemma>*heidôsô</lemma>
     <entry>
-        <etymology>jst-0008</etymology>
         <section>
-            <heading xml:lang="en">adjective</heading>
-            <def xml:lang="en">of the blood</def>
+            <heading xml:lang="en">nominal</heading>
+            <alts xml:lang="en">root: <html:i xml:lang="art-x-osv-0009">*heidsô-</html:i>; affix: <html:i xml:lang="art-x-osv-0009">*-sô</html:i></alts>
+            <def xml:lang="en">blood; bloody</def>
             <def xml:lang="en">involving bloodshed</def>
-            <def xml:lang="en">bloody</def>
-        </section>
-        <section>
-            <heading xml:lang="en">noun</heading>
-            <def xml:lang="en">blood</def>
-            <def xml:lang="en">bloodshed</def>
         </section>
     </entry>
 </word>

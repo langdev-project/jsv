@@ -15,12 +15,12 @@
 				<principal><persName xml:id="go-sh"><forename>Gô</forename> <surname>SHOEMAKE</surname></persName></principal>
 			</titleStmt>
 			<editionStmt>
-				<edition xml:id="version-no">Version 2, Draft 01</edition>
+				<edition xml:id="version-no">Version 2, Draft 02</edition>
 			</editionStmt>
 			<publicationStmt>
 				<publisher><orgName copyOf="#langdev-project" /></publisher>
 				<date>2017</date>
-				<idno type="URI">tag:langdev.xyz,2017:jsv:lrx:dict:2:01</idno>
+				<idno type="URI">tag:langdev.xyz,2017:jsv:lrx:dict:2:02</idno>
 				<availability status="free">
 					<licence target="https://creativecommons.org/publicdomain/zero/1.0/">Released into the public domain under a <title>CC0 1.0 Universal License</title>.</licence>
 				</availability>
@@ -46,12 +46,10 @@
 			</projectDesc>
 			<tagsDecl partial="true">
 				<namespace name="http://www.tei-c.org/ns/1.0">
-					<tagUsage gi="div" occurs="7">Used to separate the different versions of the <lang>Eho</lang> language, and also to contain preface material.</tagUsage>
+					<tagUsage gi="div" occurs="7">Used to separate the different versions of the <lang>Lrex</lang> language, and also to contain preface material.</tagUsage>
 					<tagUsage gi="entry" occurs="108">Used to mark dictionary entries.</tagUsage>
 					<tagUsage gi="form">The <val>class</val> <att>type</att> marks a <lang>Lrex version 6</lang> word class.</tagUsage>
 					<tagUsage gi="ident">The <val>BCP47</val> <att>type</att> marks an <name type="org"><choice><abbr>IETF</abbr><expan>Internet Engineering Task Force</expan></choice></name> language tag, as defined by <ref target="https://tools.ietf.org/rfc/bcp/bcp47.txt" mediaType="text/plain"><title level="m"><choice><abbr>BCP</abbr><expan>Best Current Practices</expan></choice> 47</title></ref>.</tagUsage>
-					<tagUsage gi="index">Marks keywords for entry indexing and searching.</tagUsage>
-					<tagUsage gi="name">The <val>org</val> <att>type</att> is used to mark an organization.</tagUsage>
 					<tagUsage gi="note">The <val>version</val> <att>type</att> is used to denote versions in the list of changes.</tagUsage>
 					<tagUsage gi="rs">The <val>unicode</val> <att>type</att> is used to reference a <orgName>Unicode</orgName> character.</tagUsage>
 					<tagUsage gi="seg">
@@ -256,6 +254,7 @@
 								margin: 0;
 								border: thin currentColor solid;
 								padding: 0 .75em;
+								font-weight: inherit;
 								text-align: left;
 							}
 							table.dictionary thead { text-decoration: underline }
@@ -314,12 +313,12 @@
 							}
 							main > header tr > *, main > footer tr > * { border-color: #6FCFEF }
 							main > article > header { border-color: #6FCFEF }
-							a[href] { color: #2028B8 }
-							dfn { color: #0FAF0F }
+							a[href] { color: #0FAF0F }
+							dfn { color: #2028B8 }
 							hr { color: #3F3F3F }
 							p.def { color: #FF0000 }
 							small.note { color: #FF0000 }
-							span.splash { color: #2028B8 }
+							span.splash { color: #0FAF0F }
 						</html:style>
 						<html:style type="text/css" title="OldStyle" id="css-oldStyle">
 							@namespace "http://www.w3.org/1999/xhtml";
@@ -896,6 +895,10 @@
 		<!--  REVISION DESCRIPTIONS  -->
 
 		<revisionDesc>
+			<change when="2017-10-23">
+				Minor markup improvements.
+				<note type="version">2.02</note>
+			</change>
 			<change when="2017-10-08">
 				Rewrote <choice><abbr>LREC</abbr><expan><choice><abbr>LexisML</abbr><expan>Lexis Markup Language</expan></choice> index RECord</expan></choice>+<choice><abbr>HTML</abbr><expan>HyperText Markup Language</expan></choice> dictionary files into a single <choice><abbr>TEI</abbr><expan>Text Encoding Initiative</expan></choice> document.
 				Corrections were made where errors were found and documentation was improved.
@@ -930,7 +933,7 @@
 					<docAuthor copyOf="#author-name"></docAuthor>
 				</byline>
 				<docEdition copyOf="#version-no" />
-				<docDate when="2017-10-08">08 October 2017</docDate>
+				<docDate when="2017-10-23">23 October 2017</docDate>
 				<epigraph>
 					<p>
 						<seg type="splash" subtype="default">Kingly!</seg>
@@ -967,7 +970,7 @@
 				<p>
 					Definitive etymological classifications for <lang>Lrex</lang> words have not been made.
 					However, in the later <lang>Lrex</lang> versions, broad associations have been noted.
-					These are marked via a <rs type="unicode">U+223B ∻ HOMOTHETIC</rs> <name type="org">Unicode</name> character below.
+					These are marked via a <rs type="unicode">U+223B ∻ HOMOTHETIC</rs> <orgName>Unicode</orgName> character below.
 				</p>
 				<p>
 					As <lang>Lrex</lang> is in essence a speculative proto-language, the pronunciation data should not be taken as anything more than a broad guideline.
