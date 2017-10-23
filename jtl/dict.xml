@@ -15,12 +15,12 @@
 				<principal><persName xml:id="go-sh"><forename>Gô</forename> <surname>SHOEMAKE</surname></persName></principal>
 			</titleStmt>
 			<editionStmt>
-				<edition xml:id="version-no">Version 1, Draft 01</edition>
+				<edition xml:id="version-no">Version 1, Draft 02</edition>
 			</editionStmt>
 			<publicationStmt>
 				<publisher><orgName copyOf="#langdev-project" /></publisher>
 				<date>2017</date>
-				<idno type="URI">tag:langdev.xyz,2017:jsv:jtl:dict:1:01</idno>
+				<idno type="URI">tag:langdev.xyz,2017:jsv:jtl:dict:1:02</idno>
 				<availability status="free">
 					<licence target="https://creativecommons.org/publicdomain/zero/1.0/">Released into the public domain under a <title>CC0 1.0 Universal License</title>.</licence>
 				</availability>
@@ -46,11 +46,11 @@
 			</projectDesc>
 			<tagsDecl partial="true">
 				<namespace name="http://www.tei-c.org/ns/1.0">
-					<tagUsage gi="div" occurs="26">
+					<tagUsage gi="div" occurs="69">
 						Used to separate the different versions of the <lang>Jastulae</lang> language, and categorize words within later versions.
 						Also used to contain preface material.
 					</tagUsage>
-					<tagUsage gi="entry" occurs="30">Used to mark dictionary entries.</tagUsage>
+					<tagUsage gi="entry" occurs="615">Used to mark dictionary entries.</tagUsage>
 					<tagUsage gi="ident">The <val>BCP47</val> <att>type</att> marks an <orgName><choice><abbr>IETF</abbr><expan>Internet Engineering Task Force</expan></choice></orgName> language tag, as defined by <ref target="https://tools.ietf.org/rfc/bcp/bcp47.txt" mediaType="text/plain"><title level="m"><choice><abbr>BCP</abbr><expan>Best Current Practices</expan></choice> 47</title></ref>.</tagUsage>
 					<tagUsage gi="index">Marks keywords for entry indexing and searching.</tagUsage>
 					<tagUsage gi="note">The <val>version</val> <att>type</att> is used to denote versions in the list of changes.</tagUsage>
@@ -976,6 +976,10 @@
 		<!--  REVISION DESCRIPTIONS  -->
 
 		<revisionDesc>
+			<change when="2017-10-23">
+				Set internal tag usage counts to their correct values.
+				<note type="version">1.02</note>
+			</change>
 			<change when="2017-10-23">
 				Created <choice><abbr>TEI</abbr><expan>Text Encoding Initiative</expan></choice> document from source text and prior work.
 				This is the first full digitization of the entire known <lang>Jastulae</lang> language.
