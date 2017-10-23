@@ -15,12 +15,12 @@
 				<principal><persName xml:id="go-sh"><forename>Gô</forename> <surname>SHOEMAKE</surname></persName></principal>
 			</titleStmt>
 			<editionStmt>
-				<edition xml:id="version-no">Version 1, Draft 02</edition>
+				<edition xml:id="version-no">Version 1, Draft 03</edition>
 			</editionStmt>
 			<publicationStmt>
 				<publisher><orgName copyOf="#langdev-project" /></publisher>
 				<date>2017</date>
-				<idno type="URI">tag:langdev.xyz,2017:jsv:jtl:dict:1:02</idno>
+				<idno type="URI">tag:langdev.xyz,2017:jsv:jtl:dict:1:03</idno>
 				<availability status="free">
 					<licence target="https://creativecommons.org/publicdomain/zero/1.0/">Released into the public domain under a <title>CC0 1.0 Universal License</title>.</licence>
 				</availability>
@@ -976,6 +976,10 @@
 		<!--  REVISION DESCRIPTIONS  -->
 
 		<revisionDesc>
+			<change when="2017-10-23">
+				Fixed an incorrect reference.
+				<note type="version">1.03</note>
+			</change>
 			<change when="2017-10-23">
 				Set internal tag usage counts to their correct values.
 				<note type="version">1.02</note>
@@ -2364,7 +2368,7 @@
 						<form>
 							<orth xml:lang="art-Latn-x-jtl-0007">switād</orth>
 						</form>
-						<etym><lang expand="Jastulae VI">VI</lang> <ptr target="#dict.0006.so͡ot" /> + <ptr target="#dict.0006.to͡oæd" />, <gloss><soCalled>male person</soCalled></gloss></etym>
+						<etym><lang expand="Jastulae VI">VI</lang> <ptr target="#dict.0006.so͡oit" /> + <ptr target="#dict.0006.to͡oæd" />, <gloss><soCalled>male person</soCalled></gloss></etym>
 						<def>Man</def>
 					</entry>
 					<entry xml:id="dict.0007.dōwäto͡o">
