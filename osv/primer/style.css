@@ -1,0 +1,781 @@
+@namespace "http://www.w3.org/1999/xhtml";
+@namespace math "http://www.w3.org/1998/Math/MathML";
+
+/*  Font features  */
+@font-feature-values Junicode {
+	@swash { With-Swashes: 2 }
+	@styleset {
+		Nordic-Alternates: 1;
+		Enlarged-Minuscules: 6;
+		OldStyle-Punctuation: 18;
+	}
+}
+
+/*  Global styling  */
+*|*:Lang(art-Latn-x-osv),
+*|*:Lang(art-Zzzz-x-osv-Sevi) { Color: Black }
+*|*:Lang(art-Zzzz-x-osv-Sevi),
+*|*:Lang(zxx-Zzzz-x-Sevi) {
+	Font-Family: "Unifont LANGDEV", "Unifont", Monospace;
+	Font-Size-Adjust: None;
+}
+*|*:Lang(art-Hang-x-osv),
+*|*:Lang(zxx-Hang) {
+	Font-Family: "Source Han Sans", Sans-Serif;
+	Font-Size-Adjust: None;
+}
+*|*:Lang(en-fonipa),
+*|*:Lang(art-fonipa),
+*|*:Lang(zxx-fonipa) {
+	Font-Style: Normal;
+	Font-Variant-Alternates: StyleSet(Nordic-Alternates);
+}
+*|*:Link,
+*|*:Visited {
+	Border-Bottom: Thin Transparent Solid;
+	Outline: Thin #999BAD Solid;
+	Color: Inherit;
+	Text-Decoration: None;
+}
+*|*:Link:Focus,
+*|*:Link:Hover,
+*|*:Visited:Focus,
+*|*:Visited:Hover {
+	Border-Bottom: Thin #535555 Solid;
+	Outline-Color: #777899;
+}
+
+/*  Math styling  */
+math|math {
+	Color: Black;
+	Font-Family: "TeX Gyre Pagella Math", "TeX Gyre Bonum Math",
+		"Latin Modern Math", Serif;
+	Font-Variant-Numeric: Normal;
+}
+math|math[display=block] {
+	Display: Block;
+	Font-Size: Larger;
+	Line-Height: 2;
+}
+ARTICLE > math|math[display=block],
+SECTION > math|math[display=block] { Margin: .66667REM -2REM }
+FIGURE > math|math[display=block] { Margin: .66667REM -3REM }
+DL.Tree > DT > math|math[display=block],
+DL.Tree > DD > math|math[display=block] {
+	Font-Size: Inherit;
+	Line-Height: 1;
+}
+math|mo { Font-Family: "Junicode", Serif }
+
+/*  Tables  */
+TABLE {
+	Display: Table;
+	Caption-Side: Bottom;
+	Margin: 2REM Auto;
+	Border: None;
+	Border-Collapse: Collapse;
+	Padding: 0;
+	Font-Size: .75REM;
+	Text-Align: Center;
+}
+FIGURE TABLE,
+TABLE TABLE { Margin: Auto }
+CAPTION {
+	Display: Table-Caption;
+	Margin: .5REM 0 0;
+	Text-Align: Center;
+}
+COL { Display: Table-Column }
+COLGROUP COL:First-Child { Border-Left: 1.5REM Transparent Solid }
+COLGROUP:Not(:Nth-Last-Child(2)) COL:First-Child { Border-Left: Medium #555666 Double }
+COLGROUP:First-Child COL:First-Child { Border-Left: None }
+COLGROUP { Display: Table-Column-Group }
+THEAD {
+	Display: Table-Header-Group;
+	Border: Thin #555666 Solid;
+	Color: Black;
+	Background: #EEE8DD;
+	Font-Weight: Bold;
+}
+TBODY {
+	Display: Table-Row-Group;
+	Border: Hidden;
+}
+THEAD ~ TBODY { Border: Thin #555666 Solid }
+TBODY + TBODY { Border-Top: Medium #555666 Double }
+TR { Display: Table-Row }
+TH,
+TD {
+	Display: Table-Cell;
+	Margin: 0;
+	Border: Thin #555666 Solid;
+	Padding: .5REM;
+}
+TABLE.Side-By-Side > TH,
+TABLE.Side-By-Side > TD { Border: None }
+TH:Empty,
+TD:Empty {
+	Background: Repeating-Linear-Gradient(135DEG, Transparent, Transparent .05REM, #999BAD .075REM, #999BAD .125REM, Transparent .15REM) Fixed;
+}
+TH > IMG,
+TD > IMG {
+	Display: Block;
+	Width: 100%;
+}
+TH {
+	Color: #334566;
+	Background: #DDDDDD;
+}
+TABLE.Side-By-Side TH { Text-Align: Center }
+TABLE.Side-By-Side TD { Text-Align: Left }
+TABLE.Side-By-Side TD:First-Child { Text-Align: Right }
+
+/*  Vocabulary lists  */
+DL.Vocabulary {
+	All: Initial;
+	Display: Block;
+	Columns: 2 10.5REM;
+	Margin: 1REM 0;
+	Border: None;
+	Padding: 0;
+	Font: Inherit;
+	Text-Align: Left;
+	Clear: Both;
+}
+DL.Vocabulary::BEFORE { Content: None }
+DL.Vocabulary::AFTER {
+	All: Unset;
+	Display: Block;
+	Clear: Both;
+	Content: "";
+}
+DL.Vocabulary > DT {
+	All: Unset;
+	Display: Inline;
+	Float: Left;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Font-Style: Inherit;
+	Font-Weight: Inherit;
+	Clear: Both;
+}
+DL.Vocabulary > DT::AFTER {
+	All: Unset;
+	Display: Inline;
+	Content: "\2002"
+}
+DL.Vocabulary > DT DFN {
+	All: Unset;
+	Display: Inline;
+	Font-Style: Inherit;
+	Font-Weight: Bold;
+}
+DL.Vocabulary > DD {
+	All: Unset;
+	Display: Inline;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+}
+DL.Vocabulary > DD::AFTER {
+	All: Unset;
+	Display: Block;
+	Content: "";
+}
+
+/*  Main page divisions  */
+#title {
+	Display: Block;
+	Margin: 0;
+	Border: Medium #555666 Inset;
+	Padding: 2.66667REM 0;
+	Color: #454545;
+	Font: Inherit;
+	Text-Align: Center;
+}
+#maintitle {
+	Display: Inline-Block;
+	Margin: Auto;
+	Border-Style: Solid None;
+	Border-Width: Thin 0;
+	Border-Color: CurrentColor Transparent;
+	Padding: .66667REM;
+	Color: Black;
+	Font-Size: 2.66667REM;
+	Font-Weight: Inherit;
+	Line-Height: 1;
+	Text-Align: Center;
+	Text-Transform: Uppercase;
+}
+#subtitle {
+	Display: Block;
+	Margin: 2REM 2.66667REM;
+	Border: None;
+	Padding: 0;
+	Color: Black;
+	Font-Size: 1.66667REM;
+	Font-Style: Italic;
+	Line-Height: 1;
+	Text-Align: Center;
+}
+#title HR {
+	Display: Block;
+	Margin: 2REM 0;
+	Border: None;
+	Padding: 0;
+	Color: Inherit;
+	Background: Transparent;
+	Font-Size: 2REM;
+	Line-Height: 1;
+	Text-Align: Center;
+}
+#title HR::AFTER { Content: "❀" }
+#title P + P { Text-Indent: 0 }
+#author {
+	Display: Block;
+	Margin: 2REM 2.66667REM;
+	Border: None;
+	Padding: 0;
+	Font-Size: 2REM;
+	Line-Height: 1;
+	Text-Align: Center;
+}
+#publisher {
+	Display: Inline-Block;
+	Position: Relative;
+	Margin: 0 Auto;
+	Border: None;
+	Padding: 0 2.66667REM;
+	Color: Black;
+	Font-Size: 1.33333REM;
+	Line-Height: 1;
+	Text-Align: Center;
+}
+#publisher::BEFORE,
+#publisher::AFTER {
+	Display: Block;
+	Position: Absolute;
+	Top: 0;
+	Bottom: 0;
+	Margin: Auto;
+	Width: 2.66667REM;
+	Height: 1.33333REM;
+	White-Space: Pre;
+}
+#publisher::BEFORE {
+	Left: 0;
+	Text-Align: Right;
+	Content: "☙ ";
+}
+#publisher::AFTER {
+	Right: 0;
+	Text-Align: Left;
+	Content: " ❧";
+}
+#copyright {
+	Display: Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0 2.66667REM;
+	Font-Size: .75REM;
+	Font-Variant-Alternates: StyleSet(Enlarged-Minuscules);
+	Font-Variant-Numeric: Normal;
+}
+#copyright::BEFORE { Content: None }
+#copyright > DIV:First-Child { Padding-Bottom: 3.5rem }
+#copyright P {
+	Display: Block;
+	Margin: 1EM Auto;
+	Border: None;
+	Padding: 0;
+}
+#copyright P + P { Text-Indent: 0 }
+#copyright HR {
+	Display: Block;
+	Margin: 0 Auto -1PX;
+	Border: None;
+	Padding: 0 0 1PX;
+	Background: Transparent;
+}
+#copyright CITE, #copyright U {
+	Font-Style: inherit;
+	Font-Variant: inherit;
+}
+#loa {
+	Display: Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0 2.66667REM;
+}
+#loa .List {
+	Columns: 2 8REM;
+	Column-Gap: 1.33333REM;
+}
+#loa DL {
+	Display: Grid;
+	Grid-Template-Columns: MinMax(4REM, 4.5REM) MinMax(4REM, 1FR);
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Max-Width: 100%;
+	Text-Align: Left;
+}
+#loa DL::AFTER { Content: None }
+#loa DT {
+	Display: Inline-Block;
+	Grid-Column-Start: 1;
+	Grid-Column-End: 2;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Width: 4.5REM;
+	Max-Width: 100%;
+	Font-Style: Inherit;
+	Font-Weight: Bold;
+	Text-Overflow: Ellipsis;
+	White-Space: NoWrap;
+	Overflow: Hidden;
+}
+#loa DT::AFTER { Content: None }
+#loa DT DFN { Font-Style: Inherit }
+#loa DD {
+	Display: Inline;
+	Grid-Column-Start: 2;
+	Grid-Column-End: 3;
+	Margin: 0;
+	Hyphens: Auto;
+}
+#loa DD::AFTER {
+	Display: Block;
+	Content: "";
+}
+HTML {
+	Display: Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Background: #777899;
+	Font-Family: "Junicode", Serif;
+	Font-Variant-Alternates: StyleSet(OldStyle-Punctuation);
+	Font-Variant-Numeric: OldStyle-Nums;
+	Font-Size-Adjust: .41796875;
+	Font-Synthesis: None;
+	Line-Height: 1.33333;
+	Text-Align: Justify;
+	Overflow-X: Hidden;
+	Overflow-Y: Auto;
+}
+BODY {
+	Display: Block;
+	Margin: Auto;
+	Border: None;
+	Padding: 6.66667REM 6REM 11.33333REM;
+	Max-Width: 34REM;
+	Color: #334566;
+	Background: #EEEEEE;
+	Overflow: Auto;
+}
+BODY > HR {
+	Display: Block;
+	Margin: 3REM Auto;
+	Border: None;
+	Padding: 0;
+	Color: #545454;
+	Background: Transparent;
+	Font-Size: 1.25REM;
+	Line-Height: 1.33333REM;
+	Text-Align: Center;
+}
+BODY > HR::AFTER { Content: "☙ ⁂ ❧" }
+NAV {
+	Display: Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0 2.66667REM;
+	Font-Weight: Bold;
+}
+NAV OL {
+	Display: Block;
+	List-Style-Type: None;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Font-Size: 1.5REM;
+	Text-Align: Left;
+	Counter-Reset: Nav-List-Count;
+}
+NAV OL LI::BEFORE,
+NAV LI LI LI OL LI::BEFORE {
+	Display: Inline-Block;
+	Float: Left;
+	Clear: Both;
+	Width: 2.33333EM;
+	Counter-Increment: Nav-List-Count;
+	Content: Counter(Nav-List-Count) ".";
+}
+*|*:Root NAV UL {
+	Display: Block;
+	List-Style-Type: None;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Font-Size: 1.5REM;
+	Text-Align: Left;
+}
+*|*:Root NAV LI {
+	Display: Block;
+	Margin: 1.5REM 0;
+	Border: None;
+	Padding: 0;
+}
+*|*:Root NAV LI OL,
+*|*:Root NAV LI UL {
+	Margin: 0;
+	Font-Size: 1.25REM;
+	Line-Height: 1.33333REM;
+}
+*|*:Root NAV LI LI { Margin: .5REM 0 }
+*|*:Root NAV LI LI ol,
+*|*:Root NAV LI LI ul {
+	Margin-Left: 1.5REM;
+	Font-Size: 1REM;
+}
+*|*:Root NAV LI LI OL LI::BEFORE { Content: Counter(Nav-List-Count,
+	Upper-Roman) "." }
+*|*:Root NAV LI LI LI { Margin: 0 }
+*|*:Root NAV LI LI LI OL,
+*|*:Root NAV LI LI LI UL {
+	Font-Size: 1REM;
+	Font-Weight: Normal;
+}
+*|*:Root NAV LI LI LI OL LI::BEFORE {  Content: Counter(Nav-List-Count)
+	"." }
+*|*:Root NAV LI LI LI LI OL,
+*|*:Root NAV LI LI LI LI UL {
+	Font-Size: .75REM;
+	Font-Variant-Alternates: StyleSet(Enlarged-Minuscules);
+	Font-Variant-Numeric: Normal;
+}
+ARTICLE.Numbered { Counter-Reset: Section-Count }
+ARTICLE.Numbered > SECTION.Numbered {
+	Counter-Increment: Section-Count;
+	Counter-Reset: SubSection-Count;
+}
+ARTICLE.Numbered > SECTION.Numbered > SECTION.Numbered {
+	Counter-Increment: SubSection-Count;
+	Counter-Reset: SubSubSection-Count;
+}
+ARTICLE.Numbered > SECTION.Numbered > SECTION.Numbered >
+	SECTION.Numbered { Counter-Increment: SubSubSection-Count }
+ARTICLE SECTION.Numbered > H4::BEFORE,
+ARTICLE SECTION.Numbered > H5::BEFORE,
+ARTICLE SECTION.Numbered > H6::BEFORE {
+	Display: Inline-Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0 1.33333EM 0 0;
+	Text-Indent: 0;
+}
+ARTICLE SECTION.Numbered > H4::BEFORE { Content: Counter(Section-Count,
+	Upper-Roman) }
+ARTICLE SECTION.Numbered > H5::BEFORE { Content:
+	Counter(SubSection-Count) }
+ARTICLE SECTION.Numbered > H6::BEFORE { Content:
+	Counter(SubSubSection-Count) }
+@media (max-width: 36REM) { BODY { Padding: 5REM 4.5REM 8.5REM } }
+@media (max-width: 32REM) { BODY { Padding: 2.5REM 2.25REM 4.25REM } }
+@media (max-width: 24REM) {
+	#title { Margin: -2.5REM -2.25REM 0 }
+	#copyright,
+	#loa,
+	NAV { Padding: 0 }
+}
+
+/*  Generic HTML styling  */
+*|*.Number { Font-Variant-Numeric: Normal }
+*|*.Swash { Font-Variant-Alternates: StyleSet(OldStyle-Punctuation) swash(With-Swashes) }
+*|*.Label {
+	Display: Inline-Block;
+	Margin: 0;
+	Font-Size: .75REM;
+	Font-Weight: Bolder;
+	Line-Height: 1REM;
+	Text-Indent: 0;
+	Float: Right;
+}
+DD {
+	Display: Block;
+	Margin: 0 0 1REM;
+	Border: None;
+	Padding: 0;
+}
+DFN {
+	Font-Style: Italic;
+	Font-Weight: Bold;
+}
+DFN:Target {
+	Margin: 0 -.25EM;
+	outline: Thin CurrentColor Solid;
+	Padding: 0 .25EM;
+	Color: #227002;
+	Background: #F6F6F6;
+}
+DL {
+	Display: Block;
+	Margin: 1REM 0;
+	Padding: 0;
+}
+DL::AFTER {
+	Display: Block;
+	Clear: Both;
+	Content: "";
+}
+DT {
+	Display: Inline-Block;
+	Float: Left;
+	Margin: 0;
+	Border: None;
+	Padding: 0 1.5EM 0 0;
+	Height: 1EM;
+	Font-Weight: Bold;
+	Font-Style: Italic;
+	Clear: Both;
+}
+DT::AFTER { Content: "." }
+FOOTER {
+	Display: Block;
+	Margin: 2.33333REM 0 0;
+	Border: None;
+	Padding: 0;
+	Font-Size: .75REM;
+}
+FOOTER::BEFORE {
+	Display: Block;
+	Margin: 0 0 .5REM;
+	Border-Style: Solid None None;
+	Border-Width: Thin 0 0;
+	Border-Color: #555666 Transparent Transparent;
+	Width: 100%;
+	Max-Width: 12REM;
+	Content: "";
+}
+FOOTER DL {
+	Display: Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+}
+FOOTER DT {
+	Display: Inline-Block;
+	Float: Left;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Width: 2REM;
+	Height: 1EM;
+	Font-Weight: Inherit;
+	Font-Style: Inherit;
+	Clear: Both;
+}
+FOOTER DT A {
+	Display: Inline-Block;
+	Margin: 0 -.25REM;
+	Border: None;
+	Padding: 0 .25REM;
+}
+FOOTER DD {
+	Display: Block;
+	Margin: 0 0 .5REM;
+	Border: None;
+	Padding: 0;
+}
+HEADER {
+	Display: Block;
+	Margin: 3.33333REM 0 7.5REM;
+	Border: None;
+	Padding: 0;
+	Font-Weight: Bold;
+	Text-Align: Center;
+}
+HEADER > A { Display: Inline-Block }
+FIGCAPTION {
+	Display: Block;
+	Margin: 1.33333REM 0 0;
+	Font-Size: .75REM;
+	Font-Variant-Alternates: StyleSet(Enlarged-Minuscules);
+	Font-Variant-Numeric: Normal;
+	Text-Align: Center;
+}
+IFRAME + FIGCAPTION { Margin: 0.66667REM 0 0 }
+FIGURE {
+	Display: Block;
+	Margin: 2REM 1REM;
+	Border: None;
+	Padding: 0;
+	Width: 100%;
+}
+FIGURE::BEFORE {
+	Display: Block;
+	Clear: Both;
+	Margin: -1REM 0 1REM;
+	Content: "";
+}
+H1 {
+	Display: Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Color: Black;
+	Font-Size: 2REM;
+	Font-Weight: Bold;
+	Font-Variant: Small-Caps;
+	Text-Align: Center;
+}
+H2 {
+	Display: Block;
+	Margin: 8.33333REM 0;
+	Border: None;
+	Padding: 0;
+	Color: black;
+	Font-Size: 2.5REM;
+	Font-Weight: Bold;
+	Text-Align: Center;
+}
+H3 {
+	Display: Block;
+	Margin: 8REM 0 4REM;
+	Border: None;
+	Padding: 0;
+	Color: Black;
+	Font-Size: 1.5REM;
+	Font-Weight: Bold;
+	Text-Align: Center;
+}
+H4 {
+	Display: Block;
+	Margin: 4REM 0 2.66667REM;
+	Border: None;
+	Padding: 0;
+	Color: Black;
+	Font-Size: 1.33333REM;
+	Font-Weight: bold;
+	Line-Height: 1;
+	Text-Align: Left;
+}
+H5 {
+	Display: Block;
+	Margin: 2REM 0 1REM;
+	Border: None;
+	Padding: 0;
+	Color: Black;
+	Font-Size: 1.25REM;
+	Font-Weight: Bold;
+	Line-Height: 1.33333REM;
+	Text-Align: Left;
+	Text-indent: -1.25REM;
+}
+H6 {
+	Display: Block;
+	Margin: 1.66667REM 0 .5REM;
+	Border: None;
+	Padding: 0;
+	Font-Size: Inherit;
+	Font-Weight: Inherit;
+	Font-Style: Italic;
+	Line-Height: Inherit;
+	Text-Align: Left;
+}
+I.Gloss {
+	Color: #227002;
+	Font-Style: Inherit;
+	Quotes: "«\2009" "\2009»" "‹\2009" "\2009›";
+}
+I.So-Called { Font-Style: Inherit }
+I.Gloss::BEFORE,
+I.So-Called::BEFORE { Content: Open-Quote }
+I.Gloss::AFTER,
+I.So-Called::AFTER { Content: Close-Quote }
+IFRAME {
+	Display: Block;
+	Margin: .5REM -2REM;
+	Border: None;
+	Padding: 0;
+	Width: 100%;
+	Width: Calc(100% + 4REM);
+	Height: 16REM;
+}
+FIGURE IFRAME {
+	Margin: 0 -3REM;
+	Width: Calc(100% + 6REM);
+}
+IFRAME.Single-Row { Height: 2.5REM }
+IFRAME.Double-Row { Height: 5REM }
+IFRAME.Triple-Row { Height: 7.5REM }
+IFRAME.Quadruple-Row { Height: 10REM }
+IFRAME.Quintuple-Row { Height: 12.5REM }
+IFRAME.Sextupule-Row { Height: 15REM }
+IFRAME.Septuple-Row { Height: 17.5REM }
+IFRAME.Octuple-Row { Height: 20REM }
+IFRAME.Nonuple-Row { Height: 22.5REM }
+FIGURE > IMG {
+	Display: Block;
+	Width: 100%;
+	Height: Auto;
+}
+P IMG { Vertical-Align: Middle }
+LI {
+	Display: List-Item;
+	Margin: 1REM 0;
+	Border: None;
+}
+LI LI { Margin: 0 }
+MARK {
+	Border: Thin #A0A0A0 Solid;
+	Padding: 0 .25EM;
+	Background: #F6F6F6;
+	Color: Inherit;
+}
+OL,
+UL {
+	Display: Block;
+	Margin: 1REM 0;
+	Border: None;
+	Padding: 0 0 0 1.5REM;
+	Clear: Both;
+}
+LI OL,
+LI UL { Margin: .66667REM 0 }
+P {
+	Display: Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+}
+P + P { Text-Indent: 2REM }
+SUB, SUP {
+	Display: Inline-Block;
+	Position: Relative;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Font-Size: .6REM;
+	Line-Height: 1;
+	Text-indent: 0;
+}
+SUB { Vertical-Align: Sub }
+SUP { Vertical-Align: Super }
+SUP A {
+	Display: Block;
+	Margin: -.1REM -.25REM;
+	Border: None;
+	Padding: 0 .25REM;
+	Height: .8REM;
+	Font-Size: .6REM;
+	Line-Height: .8REM;
+}
+U {
+	Display: Inline;
+	Font-Variant: Small-Caps;
+	Text-Decoration: None;
+}
